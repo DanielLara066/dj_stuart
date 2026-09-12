@@ -467,6 +467,16 @@ section > .container > h2.center { margin-left: auto; margin-right: auto; max-wi
   background: #ff0000;
   border-color: rgba(255, 0, 0, 0.65);
 }
+.social-tiktok {
+  color: #fff;
+  background: #090909;
+  border-color: rgba(37, 244, 238, 0.65);
+  box-shadow: -2px 0 0 rgba(37, 244, 238, .55), 2px 0 0 rgba(254, 44, 85, .55), 0 8px 24px rgba(0, 0, 0, .38);
+}
+.social-tiktok:hover {
+  border-color: #fe2c55;
+  box-shadow: -3px 0 0 rgba(37, 244, 238, .75), 3px 0 0 rgba(254, 44, 85, .75), 0 10px 28px rgba(0, 0, 0, .5);
+}
 
 /* ===== About ===== */
 .about {
@@ -481,6 +491,147 @@ section > .container > h2.center { margin-left: auto; margin-right: auto; max-wi
   gap: clamp(48px, 7vw, 88px);
   align-items: start;
 }
+.about-heading {
+  max-width: 780px;
+  margin: 0 auto 42px;
+  text-align: center;
+}
+.about-heading h2 { max-width: 760px; margin: 0 auto 16px; }
+.about-heading > p:last-child { color: var(--text-dim); }
+.bio-carousel {
+  position: relative;
+  width: min(100%, 980px);
+  margin: 0 auto;
+  padding: 0 62px 44px;
+}
+.bio-track {
+  display: flex;
+  gap: 22px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  overscroll-behavior-x: contain;
+  touch-action: pan-x pan-y;
+  border-radius: 22px;
+}
+.bio-track::-webkit-scrollbar { display: none; }
+.bio-slide {
+  flex: 0 0 100%;
+  scroll-snap-align: center;
+  scroll-snap-stop: always;
+  display: grid;
+  grid-template-columns: minmax(270px, .82fr) minmax(300px, 1.18fr);
+  min-height: 530px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 22px;
+  background: linear-gradient(145deg, rgba(255,255,255,.07), rgba(255,255,255,.018));
+  box-shadow: 0 26px 70px rgba(0,0,0,.4);
+}
+.bio-video {
+  position: relative;
+  min-height: 530px;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  background-image: linear-gradient(to top, rgba(10,10,15,.78), rgba(10,10,15,.08) 60%), url("assets/dj-stuart-portrait.jpg");
+  background-size: cover;
+  background-position: center top;
+}
+.demo-video-two { background-position: 42% top; filter: saturate(.75) hue-rotate(16deg); }
+.demo-video-three { background-position: 58% top; filter: contrast(1.12) saturate(1.15); }
+.bio-video::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 50%, transparent 0 25%, rgba(124,58,237,.18) 68%, rgba(10,10,15,.42));
+  pointer-events: none;
+}
+.bio-play {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: 76px;
+  height: 76px;
+  padding-left: 5px;
+  border: 1px solid rgba(255,255,255,.55);
+  border-radius: 50%;
+  background: rgba(10,10,15,.5);
+  box-shadow: 0 0 36px rgba(193,60,255,.5);
+  backdrop-filter: blur(10px);
+  font-size: 1.35rem;
+}
+.demo-label, .demo-note {
+  position: absolute;
+  z-index: 3;
+  left: 22px;
+  font-family: var(--ff-street);
+  text-transform: uppercase;
+}
+.demo-label { top: 22px; color: var(--spray); font-size: .78rem; }
+.demo-note { bottom: 22px; color: rgba(255,255,255,.75); font-size: .62rem; letter-spacing: .08em; }
+.bio-caption {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(34px, 6vw, 70px);
+}
+.bio-number {
+  margin-bottom: 24px;
+  color: var(--accent);
+  font-family: var(--ff-street);
+  font-size: 1rem;
+}
+.bio-caption p {
+  color: var(--text) !important;
+  font-family: var(--ff-display);
+  font-size: clamp(1.18rem, 2.2vw, 1.75rem);
+  font-weight: 500;
+  line-height: 1.5;
+}
+.bio-arrow {
+  position: absolute;
+  top: calc(50% - 34px);
+  z-index: 5;
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  border: 1px solid rgba(255,255,255,.18);
+  border-radius: 50%;
+  background: var(--surface-2);
+  color: var(--text);
+  font-size: 1.25rem;
+  cursor: pointer;
+  transition: background .2s ease, transform .2s ease, border-color .2s ease;
+}
+.bio-arrow:hover { background: var(--accent-2); border-color: var(--accent-2); transform: scale(1.08); }
+.bio-arrow-prev { left: 0; }
+.bio-arrow-next { right: 0; }
+.bio-dots {
+  position: absolute;
+  left: 50%;
+  bottom: 9px;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+.bio-dot {
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(255,255,255,.26);
+  cursor: pointer;
+  transition: width .25s ease, background .25s ease;
+}
+.bio-dot.active { width: 28px; background: linear-gradient(90deg, var(--accent), var(--accent-2)); }
+.bio-swipe-hint { display: none; }
+.about-content > .genre-tags { justify-content: center; margin-top: 30px; }
 .about-media {
   position: sticky;
   top: 112px;
@@ -962,4 +1113,24 @@ section > .container > h2.center { margin-left: auto; margin-right: auto; max-wi
   .floating-socials .social-pill span { display: none; }
   .mix-grid { grid-template-columns: 1fr; }
   .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+  .about { padding: 90px 0; }
+  .about-heading { margin-bottom: 28px; text-align: left; }
+  .about-heading h2 { font-size: clamp(2rem, 10vw, 2.8rem); }
+  .bio-carousel { width: calc(100% + 24px); margin-left: -12px; padding: 0 12px 48px; }
+  .bio-slide { grid-template-columns: 1fr; min-height: 0; }
+  .bio-video { min-height: 420px; aspect-ratio: 4/5; }
+  .bio-caption { min-height: 245px; padding: 30px 25px 34px; justify-content: flex-start; }
+  .bio-caption p { font-size: 1.15rem; line-height: 1.52; }
+  .bio-number { margin-bottom: 14px; }
+  .bio-arrow { display: none; }
+  .bio-swipe-hint {
+    display: block;
+    position: absolute;
+    right: 12px;
+    bottom: 5px;
+    color: var(--text-dim) !important;
+    font-size: .7rem;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+  }
 }

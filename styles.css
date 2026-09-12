@@ -256,7 +256,7 @@ section > .container > h2.center { margin-left: auto; margin-right: auto; max-wi
     radial-gradient(ellipse 60% 55% at 50% 38%, rgba(10,10,15,0.15) 0%, rgba(10,10,15,0.65) 75%),
     url("assets/hero-bg-portrait.jpg");
   background-size: cover;
-  background-position: center 30%;
+  background-position: center 45%;
   background-repeat: no-repeat;
   opacity: 0.7;
   z-index: 0;
@@ -275,13 +275,20 @@ section > .container > h2.center { margin-left: auto; margin-right: auto; max-wi
   0%, 100% { opacity: 0.7; transform: translateX(-50%) scale(1); }
   50% { opacity: 1; transform: translateX(-50%) scale(1.08); }
 }
-.hero-inner { position: relative; z-index: 1; }
-.hero h1 { margin: 8px 0 16px; }
+.hero-inner {
+  position: absolute;
+  top: 112px;
+  left: max(24px, calc((100vw - var(--container)) / 2 + 24px));
+  z-index: 1;
+  width: auto;
+  padding: 0;
+}
+.hero h1 { margin: 0; }
 .hero-logo {
-  width: min(90vw, 620px);
+  width: min(34vw, 390px);
   height: auto;
   display: block;
-  margin: 0 auto;
+  margin: 0;
   filter: drop-shadow(0 0 40px var(--accent-glow));
 }
 .hero-sub {
@@ -323,7 +330,7 @@ section > .container > h2.center { margin-left: auto; margin-right: auto; max-wi
 /* ===== Floating social buttons ===== */
 .floating-socials {
   position: fixed;
-  top: 50%;
+  top: 67%;
   right: 18px;
   z-index: 90;
   transform: translateY(-50%);
@@ -753,6 +760,12 @@ section > .container > h2.center { margin-left: auto; margin-right: auto; max-wi
   .nav-links a { display: block; padding: 12px 0; }
   .nav-cta { display: inline-block; margin-top: 8px; }
   .nav-toggle { display: flex; }
+  .hero-inner {
+    top: 94px;
+    left: 18px;
+  }
+  .hero-logo { width: min(58vw, 280px); }
+  .hero-portrait { background-position: center 50%; }
   .floating-socials { right: 10px; }
   .floating-socials .social-pills { gap: 8px; }
   .floating-socials .social-pill {

@@ -1,3 +1,12 @@
+if ('scrollRestoration' in history) {
+  history.scrollRestoration = 'manual';
+}
+
+if (!window.location.hash || window.location.hash === '#top') {
+  window.scrollTo(0, 0);
+  window.addEventListener('load', () => window.scrollTo(0, 0), { once: true });
+}
+
 document.getElementById('year').textContent = new Date().getFullYear();
 
 const navToggle = document.getElementById('navToggle');

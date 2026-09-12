@@ -1259,6 +1259,25 @@ section > .container > h2.center { margin-left: auto; margin-right: auto; max-wi
   }
 }
 
+/* ===== Compact about title ===== */
+.about-heading {
+  max-width: 1080px;
+}
+.about-content .about-heading h2 {
+  max-width: 1040px;
+  font-size: clamp(1.9rem, 3.15vw, 2.85rem);
+  line-height: 1.16;
+  letter-spacing: -.025em;
+  text-wrap: balance;
+}
+@media (max-width: 720px) {
+  .about-content .about-heading h2 {
+    max-width: 100%;
+    font-size: clamp(1.65rem, 7.8vw, 2.15rem);
+    line-height: 1.18;
+  }
+}
+
 /* ===== Clean black, white and neon-purple theme ===== */
 .noise-overlay { display: none; }
 .hero { background: var(--bg); }

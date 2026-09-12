@@ -287,7 +287,7 @@ section > .container > h2.center { margin-left: auto; margin-right: auto; max-wi
 }
 .hero h1 { margin: 0; }
 .hero-logo {
-  width: min(50vw, 500px);
+  width: min(62vw, 650px);
   height: auto;
   display: block;
   margin: 0 auto;
@@ -767,7 +767,7 @@ section > .container > h2.center { margin-left: auto; margin-right: auto; max-wi
     bottom: 106px;
     left: 50%;
   }
-  .hero-logo { width: min(78vw, 340px); }
+  .hero-logo { width: min(88vw, 410px); }
   .hero-portrait { background-position: center 50%; }
   .floating-socials { right: 10px; }
   .floating-socials .social-pills { gap: 8px; }

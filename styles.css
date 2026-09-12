@@ -277,18 +277,20 @@ section > .container > h2.center { margin-left: auto; margin-right: auto; max-wi
 }
 .hero-inner {
   position: absolute;
-  top: 112px;
-  left: max(24px, calc((100vw - var(--container)) / 2 + 24px));
+  top: auto;
+  bottom: 118px;
+  left: 50%;
+  transform: translateX(-50%);
   z-index: 1;
-  width: auto;
+  width: 100%;
   padding: 0;
 }
 .hero h1 { margin: 0; }
 .hero-logo {
-  width: min(34vw, 390px);
+  width: min(50vw, 500px);
   height: auto;
   display: block;
-  margin: 0;
+  margin: 0 auto;
   filter: drop-shadow(0 0 40px var(--accent-glow));
 }
 .hero-sub {
@@ -761,10 +763,11 @@ section > .container > h2.center { margin-left: auto; margin-right: auto; max-wi
   .nav-cta { display: inline-block; margin-top: 8px; }
   .nav-toggle { display: flex; }
   .hero-inner {
-    top: 94px;
-    left: 18px;
+    top: auto;
+    bottom: 106px;
+    left: 50%;
   }
-  .hero-logo { width: min(58vw, 280px); }
+  .hero-logo { width: min(78vw, 340px); }
   .hero-portrait { background-position: center 50%; }
   .floating-socials { right: 10px; }
   .floating-socials .social-pills { gap: 8px; }

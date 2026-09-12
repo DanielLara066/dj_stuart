@@ -506,9 +506,10 @@ section > .container > h2.center { margin-left: auto; margin-right: auto; max-wi
 .about-heading > p:last-child { color: var(--text-dim); }
 .bio-carousel {
   position: relative;
-  width: min(100%, 1160px);
-  margin: 0 auto;
-  padding: 0 58px 20px;
+  width: 100vw;
+  max-width: none;
+  margin-left: calc(50% - 50vw);
+  padding: 0 0 20px;
 }
 .bio-track {
   display: flex;
@@ -521,12 +522,12 @@ section > .container > h2.center { margin-left: auto; margin-right: auto; max-wi
   scrollbar-width: none;
   overscroll-behavior-x: contain;
   touch-action: pan-x pan-y;
-  padding: 46px 19%;
-  scroll-padding-inline: 19%;
+  padding: 46px calc((100vw - min(62vw, 760px)) / 2);
+  scroll-padding-inline: calc((100vw - min(62vw, 760px)) / 2);
 }
 .bio-track::-webkit-scrollbar { display: none; }
 .bio-slide {
-  flex: 0 0 62%;
+  flex: 0 0 min(62vw, 760px);
   scroll-snap-align: center;
   scroll-snap-stop: always;
   display: grid;
@@ -627,8 +628,8 @@ section > .container > h2.center { margin-left: auto; margin-right: auto; max-wi
   transition: background .2s ease, transform .2s ease, border-color .2s ease;
 }
 .bio-arrow:hover { background: var(--accent-2); border-color: var(--accent-2); transform: scale(1.08); }
-.bio-arrow-prev { left: 0; }
-.bio-arrow-next { right: 0; }
+.bio-arrow-prev { left: max(24px, calc(50vw - 570px)); }
+.bio-arrow-next { right: max(24px, calc(50vw - 570px)); }
 .bio-swipe-hint { display: none; }
 .about-content > .genre-tags { justify-content: center; margin-top: 30px; }
 .about-media {
@@ -1115,9 +1116,9 @@ section > .container > h2.center { margin-left: auto; margin-right: auto; max-wi
   .about { padding: 90px 0; }
   .about-heading { margin-bottom: 28px; text-align: left; }
   .about-heading h2 { font-size: clamp(2rem, 10vw, 2.8rem); }
-  .bio-carousel { width: calc(100% + 48px); margin-left: -24px; padding: 0 0 42px; }
-  .bio-track { gap: 4px; padding: 34px 14%; scroll-padding-inline: 14%; }
-  .bio-slide { flex-basis: 72%; grid-template-columns: 1fr; min-height: 0; transform: scale(.5); filter: blur(3px) saturate(.6); }
+  .bio-carousel { width: 100vw; margin-left: calc(50% - 50vw); padding: 0 0 42px; }
+  .bio-track { gap: 4px; padding: 34px 12vw; scroll-padding-inline: 12vw; }
+  .bio-slide { flex-basis: 76vw; grid-template-columns: 1fr; min-height: 0; transform: scale(.5); filter: blur(3px) saturate(.6); }
   .bio-slide.active { transform: scale(1.04); filter: none; }
   .bio-video { min-height: 0; aspect-ratio: 4/3; }
   .bio-caption { min-height: 90px; padding: 13px 15px 16px; justify-content: flex-start; }

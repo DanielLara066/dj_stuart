@@ -508,16 +508,18 @@ section > .container > h2.center { margin-left: auto; margin-right: auto; max-wi
   display: flex;
   gap: 22px;
   overflow-x: auto;
+  overflow-y: hidden;
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
   scrollbar-width: none;
   overscroll-behavior-x: contain;
   touch-action: pan-x pan-y;
-  border-radius: 22px;
+  padding: 32px 15%;
+  scroll-padding-inline: 15%;
 }
 .bio-track::-webkit-scrollbar { display: none; }
 .bio-slide {
-  flex: 0 0 100%;
+  flex: 0 0 70%;
   scroll-snap-align: center;
   scroll-snap-stop: always;
   display: grid;
@@ -528,6 +530,19 @@ section > .container > h2.center { margin-left: auto; margin-right: auto; max-wi
   border-radius: 22px;
   background: linear-gradient(145deg, rgba(255,255,255,.07), rgba(255,255,255,.018));
   box-shadow: 0 26px 70px rgba(0,0,0,.4);
+  opacity: .42;
+  filter: blur(4px) saturate(.65);
+  transform: scale(.84);
+  transform-origin: center;
+  transition: transform .45s cubic-bezier(.2,.75,.25,1), opacity .45s ease, filter .45s ease, box-shadow .45s ease, border-color .45s ease;
+}
+.bio-slide.active {
+  z-index: 2;
+  opacity: 1;
+  filter: blur(0) saturate(1);
+  transform: scale(1);
+  border-color: rgba(193,60,255,.5);
+  box-shadow: 0 28px 80px rgba(0,0,0,.52), 0 0 44px rgba(124,58,237,.2);
 }
 .bio-video {
   position: relative;
@@ -1117,7 +1132,9 @@ section > .container > h2.center { margin-left: auto; margin-right: auto; max-wi
   .about-heading { margin-bottom: 28px; text-align: left; }
   .about-heading h2 { font-size: clamp(2rem, 10vw, 2.8rem); }
   .bio-carousel { width: calc(100% + 24px); margin-left: -12px; padding: 0 12px 48px; }
-  .bio-slide { grid-template-columns: 1fr; min-height: 0; }
+  .bio-track { gap: 12px; padding: 18px 9%; scroll-padding-inline: 9%; }
+  .bio-slide { flex-basis: 82%; grid-template-columns: 1fr; min-height: 0; transform: scale(.9); filter: blur(2.5px) saturate(.7); }
+  .bio-slide.active { transform: scale(1); filter: none; }
   .bio-video { min-height: 420px; aspect-ratio: 4/5; }
   .bio-caption { min-height: 245px; padding: 30px 25px 34px; justify-content: flex-start; }
   .bio-caption p { font-size: 1.15rem; line-height: 1.52; }

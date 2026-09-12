@@ -54,7 +54,7 @@ const bioTrack = document.getElementById('bioTrack');
 const bioSlides = bioTrack ? [...bioTrack.querySelectorAll('.bio-slide')] : [];
 const bioPrev = document.querySelector('.bio-arrow-prev');
 const bioNext = document.querySelector('.bio-arrow-next');
-let activeBioSlide = 0;
+let activeBioSlide = 1;
 
 function showBioSlide(index) {
   if (!bioTrack || !bioSlides.length) return;
@@ -68,6 +68,13 @@ function showBioSlide(index) {
 }
 
 if (bioTrack) {
+  const centerInitialBioSlide = () => {
+    const initialSlide = bioSlides[activeBioSlide];
+    bioTrack.scrollLeft = initialSlide.offsetLeft - (bioTrack.clientWidth - initialSlide.offsetWidth) / 2;
+  };
+  requestAnimationFrame(centerInitialBioSlide);
+  window.addEventListener('load', centerInitialBioSlide, { once: true });
+
   bioPrev.addEventListener('click', () => showBioSlide(activeBioSlide - 1));
   bioNext.addEventListener('click', () => showBioSlide(activeBioSlide + 1));
 

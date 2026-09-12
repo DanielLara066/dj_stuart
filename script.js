@@ -60,9 +60,11 @@ function showBioSlide(index) {
   if (!bioTrack || !bioSlides.length) return;
   activeBioSlide = (index + bioSlides.length) % bioSlides.length;
   const activeSlide = bioSlides[activeBioSlide];
-  const targetLeft = activeSlide.offsetLeft - (bioTrack.clientWidth - activeSlide.offsetWidth) / 2;
-  bioTrack.scrollTo({ left: targetLeft, behavior: 'smooth' });
   bioSlides.forEach((slide, slideIndex) => slide.classList.toggle('active', slideIndex === activeBioSlide));
+  requestAnimationFrame(() => {
+    const targetLeft = activeSlide.offsetLeft - (bioTrack.clientWidth - activeSlide.offsetWidth) / 2;
+    bioTrack.scrollTo({ left: targetLeft, behavior: 'smooth' });
+  });
 }
 
 if (bioTrack) {

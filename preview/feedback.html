@@ -1,0 +1,40 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Stuart — prévia de feedback</title><link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=Bungee&display=swap" rel="stylesheet"><link rel="stylesheet" href="../styles.css"><style>.contact{padding:48px 0}.contact-grid{gap:40px}.feedback-panel h2{font-size:32px}.booking-panel h2{font-size:36px}.contact-form{padding:24px}.feedback-panel{border-color:rgba(176,38,255,.35)}button:disabled{opacity:.65}.preview-banner{padding:16px;text-align:center;background:#241032;color:#ddabff;font:14px Inter,sans-serif}</style></head><body><div class="preview-banner">PRÉVIA VISUAL — nenhum feedback é enviado ou salvo nesta página</div>  <!-- CONTATO -->
+  <section class="contact" id="contato">
+    <div class="container contact-grid">
+      <div class="booking-panel"><div class="contact-info">
+        <p class="eyebrow">Bookings &amp; Contato</p>
+        <h2>Vamos criar algo juntos</h2>
+        <p>Disponível para shows, festivais, produções e colaborações. Preencha o formulário ou envie um e-mail direto.</p>
+        <a class="contact-email" href="mailto:stuartpsyl@gmail.com">stuartpsyl@gmail.com</a>
+      </div>
+      <form class="contact-form" id="contactForm" onsubmit="event.preventDefault()">
+        <div class="form-row">
+          <label for="name">Nome</label>
+          <input type="text" id="name" name="name" required placeholder="Seu nome">
+        </div>
+        <div class="form-row">
+          <label for="email">E-mail</label>
+          <input type="email" id="email" name="email" required placeholder="seu@email.com">
+        </div>
+        <div class="form-row">
+          <label for="message">Mensagem</label>
+          <textarea id="message" name="message" rows="5" required placeholder="Conte sobre o evento ou proposta..."></textarea>
+        </div>
+        <button type="button" class="btn btn-primary btn-block" disabled>Enviar Mensagem</button>
+        <p class="form-note" id="formNote" role="status"></p>
+      </form></div>
+<div class="feedback-panel contact-form">
+<p class="eyebrow">Sua experiência</p><h2>A pista também fala</h2>
+<p style="color:var(--text-dim);margin:16px 0 24px">Já viveu um set do Stuart? Deixe sua avaliação.</p>
+<form onsubmit="event.preventDefault()">
+<div class="form-row"><label for="review-name">Nome público</label><input id="review-name" maxlength="60" placeholder="Como você quer aparecer" required></div>
+<fieldset style="border:0;margin:0 0 20px"><legend style="color:var(--text-dim);font-size:.8rem;margin-bottom:10px">Sua nota</legend><div style="display:flex;gap:14px"><label style="color:var(--accent);font-size:26px"><input type="radio" name="rating" value="1" aria-label="1 estrelas">★</label><label style="color:var(--accent);font-size:26px"><input type="radio" name="rating" value="2" aria-label="2 estrelas">★</label><label style="color:var(--accent);font-size:26px"><input type="radio" name="rating" value="3" aria-label="3 estrelas">★</label><label style="color:var(--accent);font-size:26px"><input type="radio" name="rating" value="4" aria-label="4 estrelas">★</label><label style="color:var(--accent);font-size:26px"><input type="radio" name="rating" value="5" aria-label="5 estrelas">★</label></div></fieldset>
+<div class="form-row"><label for="review-comment">Comentário</label><textarea id="review-comment" rows="4" maxlength="1000" placeholder="Conte como foi sua experiência…" required></textarea></div>
+<p style="font-size:.8rem;color:var(--text-dim);margin-bottom:20px">Seu nome e comentário serão públicos no portfólio.</p>
+<button type="button" class="btn btn-primary btn-block" disabled>Publicar avaliação</button>
+<p class="form-note">Prévia visual · envio ainda indisponível</p></form>
+<div style="border-top:1px solid var(--line);margin-top:28px;padding-top:24px"><h3>Avaliações</h3><p style="color:var(--text-dim);margin-top:12px">Ainda não há avaliações. Seja o primeiro a compartilhar sua experiência.</p></div></div>
+    </div>
+  </section>
+
+</body></html>

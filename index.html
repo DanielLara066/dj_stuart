@@ -10,6 +10,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=Bungee&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 <link rel="stylesheet" href="video-controls.css">
+<link rel="stylesheet" href="feedback.css">
 <link rel="icon" href="assets/favicon-32.png" sizes="32x32" type="image/png">
 <link rel="icon" href="assets/favicon-16.png" sizes="16x16" type="image/png">
 <link rel="icon" href="assets/favicon-48.png" sizes="48x48" type="image/png">
@@ -84,7 +85,6 @@
           </article>
           <article class="bio-slide" aria-label="3 de 3">
             <div class="bio-video demo-video demo-video-three" role="img" aria-label="Espaço demonstrativo do terceiro vídeo">
-              <span class="bio-play" aria-hidden="true">▶</span>
             </div>
             <div class="bio-caption">
               <p>Mais do que tocar músicas, Stuart cria momentos. Técnica, precisão e leitura de pista transformam cada apresentação em uma jornada sonora única e marcante.</p>
@@ -137,6 +137,7 @@
   <!-- CONTATO -->
   <section class="contact" id="contato">
     <div class="container contact-grid">
+      <div class="booking-panel">
       <div class="contact-info">
         <p class="eyebrow">Bookings &amp; Contato</p>
         <h2>Vamos criar algo juntos</h2>
@@ -159,6 +160,22 @@
         <button type="submit" class="btn btn-primary btn-block">Enviar Mensagem</button>
         <p class="form-note" id="formNote" role="status"></p>
       </form>
+      </div>
+      <div class="feedback-panel contact-form">
+        <p class="eyebrow">Sua experiência</p>
+        <h2>A pista também fala</h2>
+        <p class="feedback-intro">Já viveu um set do Stuart? Deixe sua avaliação.</p>
+        <form id="reviewForm">
+          <div class="form-row"><label for="review-name">Nome público</label><input id="review-name" name="name" minlength="2" maxlength="60" autocomplete="name" placeholder="Como você quer aparecer" required></div>
+          <fieldset class="review-rating"><legend>Sua nota</legend><div><label><input type="radio" name="rating" value="1" required><span>1 ★</span></label><label><input type="radio" name="rating" value="2" required><span>2 ★</span></label><label><input type="radio" name="rating" value="3" required><span>3 ★</span></label><label><input type="radio" name="rating" value="4" required><span>4 ★</span></label><label><input type="radio" name="rating" value="5" required><span>5 ★</span></label></div></fieldset>
+          <div class="form-row"><label for="review-comment">Comentário</label><textarea id="review-comment" name="comment" rows="4" minlength="5" maxlength="1000" placeholder="Conte como foi sua experiência…" required></textarea></div>
+          <div class="review-honeypot" aria-hidden="true"><label for="review-website">Website</label><input id="review-website" name="website" tabindex="-1" autocomplete="off"></div>
+          <p class="feedback-public-note">Seu nome, nota e comentário aparecerão publicamente no portfólio.</p>
+          <button type="submit" class="btn btn-primary btn-block" id="reviewSubmit" disabled>Publicar avaliação</button>
+          <p class="form-note" id="reviewStatus" role="status">Carregando avaliações…</p>
+        </form>
+        <div class="review-list-wrap"><h3>Avaliações</h3><div id="reviewList"></div><button type="button" class="review-refresh" id="reviewRefresh">Atualizar avaliações</button></div>
+      </div>
     </div>
   </section>
 
@@ -203,5 +220,6 @@
 </footer>
 
 <script src="script.js"></script>
+<script src="feedback.js"></script>
 </body>
 </html>

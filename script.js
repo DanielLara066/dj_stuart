@@ -34,8 +34,11 @@ const formNote = document.getElementById('formNote');
 
 form.addEventListener('submit', (e) => {
   e.preventDefault();
-  formNote.textContent = 'Mensagem enviada! Retornaremos em breve.';
-  form.reset();
+  const data = new FormData(form);
+  const subject = encodeURIComponent('Contato pelo portfólio — ' + data.get('name'));
+  const body = encodeURIComponent('Nome: ' + data.get('name') + '\nE-mail: ' + data.get('email') + '\n\n' + data.get('message'));
+  window.location.href = 'mailto:stuartpsyl@gmail.com?subject=' + subject + '&body=' + body;
+  formNote.textContent = 'Finalize o envio no seu aplicativo de e-mail. Se ele não abrir, use o endereço ao lado.';
 });
 
 const revealTargets = document.querySelectorAll(

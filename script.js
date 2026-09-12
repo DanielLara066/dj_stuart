@@ -50,6 +50,61 @@ revealTargets.forEach((el) => {
   observer.observe(el);
 });
 
+const bioTrack = document.getElementById('bioTrack');
+const bioSlides = bioTrack ? [...bioTrack.querySelectorAll('.bio-slide')] : [];
+const bioDots = [...document.querySelectorAll('.bio-dot')];
+const bioPrev = document.querySelector('.bio-arrow-prev');
+const bioNext = document.querySelector('.bio-arrow-next');
+let activeBioSlide = 0;
+
+function showBioSlide(index) {
+  if (!bioTrack || !bioSlides.length) return;
+  activeBioSlide = (index + bioSlides.length) % bioSlides.length;
+  bioSlides[activeBioSlide].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+  bioDots.forEach((dot, dotIndex) => {
+    const isActive = dotIndex === activeBioSlide;
+    dot.classList.toggle('active', isActive);
+    if (isActive) dot.setAttribute('aria-current', 'true');
+    else dot.removeAttribute('aria-current');
+  });
+}
+
+if (bioTrack) {
+  bioPrev.addEventListener('click', () => showBioSlide(activeBioSlide - 1));
+  bioNext.addEventListener('click', () => showBioSlide(activeBioSlide + 1));
+  bioDots.forEach((dot, index) => dot.addEventListener('click', () => showBioSlide(index)));
+
+  let bioScrollTimer;
+  bioTrack.addEventListener('scroll', () => {
+    clearTimeout(bioScrollTimer);
+    bioScrollTimer = setTimeout(() => {
+      const trackCenter = bioTrack.scrollLeft + bioTrack.clientWidth / 2;
+      let closestIndex = 0;
+      let closestDistance = Infinity;
+      bioSlides.forEach((slide, index) => {
+        const slideCenter = slide.offsetLeft + slide.offsetWidth / 2;
+        const distance = Math.abs(trackCenter - slideCenter);
+        if (distance < closestDistance) {
+          closestDistance = distance;
+          closestIndex = index;
+        }
+      });
+      activeBioSlide = closestIndex;
+      bioDots.forEach((dot, index) => {
+        const isActive = index === activeBioSlide;
+        dot.classList.toggle('active', isActive);
+        if (isActive) dot.setAttribute('aria-current', 'true');
+        else dot.removeAttribute('aria-current');
+      });
+    }, 80);
+  }, { passive: true });
+
+  bioTrack.addEventListener('keydown', (event) => {
+    if (event.key === 'ArrowLeft') showBioSlide(activeBioSlide - 1);
+    if (event.key === 'ArrowRight') showBioSlide(activeBioSlide + 1);
+  });
+}
+
 const supportsFineCursor = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
 
 if (supportsFineCursor) {
@@ -79,7 +134,7 @@ if (supportsFineCursor) {
   }
   requestAnimationFrame(animateRing);
 
-  const hoverTargets = 'a, button, input, textarea, .btn, .social-pill, .track-card, .mix-card, .gallery-item';
+  const hoverTargets = 'a, button, input, textarea, .btn, .social-pill, .track-card, .mix-card, .gallery-item, .bio-slide';
 
   document.addEventListener('mouseover', (e) => {
     if (e.target.closest(hoverTargets)) {

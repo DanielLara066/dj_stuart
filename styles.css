@@ -287,12 +287,16 @@ section > .container > h2.center { margin-left: auto; margin-right: auto; max-wi
   width: 100%;
   padding: 0 48px;
   display: grid;
-  grid-template-columns: minmax(0, 650px) minmax(280px, 410px);
+  grid-template-columns: 1fr;
   justify-content: center;
+  justify-items: center;
   align-items: center;
-  gap: clamp(32px, 5vw, 72px);
+  gap: 20px;
 }
-.hero h1 { margin: 0; }
+.hero h1 {
+  width: min(62vw, 650px);
+  margin: 0;
+}
 .hero-logo {
   width: 100%;
   height: auto;
@@ -302,13 +306,14 @@ section > .container > h2.center { margin-left: auto; margin-right: auto; max-wi
 }
 .hero-bio {
   margin: 0;
-  padding: 18px 0 18px 24px;
-  border-left: 3px solid var(--accent);
+  padding: 14px 24px 0;
+  border-top: 2px solid var(--accent);
   color: rgba(255,255,255,.82);
   font-size: clamp(.92rem, 1.25vw, 1.06rem);
-  line-height: 1.75;
+  line-height: 1.65;
   text-shadow: 0 2px 18px rgba(0,0,0,.85);
-  max-width: 410px;
+  max-width: 720px;
+  text-align: center;
 }
 .hero-sub {
   font-size: clamp(1rem, 2vw, 1.25rem);

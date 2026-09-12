@@ -565,6 +565,7 @@ section > .container > h2.center { margin-left: auto; margin-right: auto; max-wi
   margin-top: 48px;
 }
 .track-card {
+  position: relative;
   display: flex;
   align-items: center;
   gap: 18px;

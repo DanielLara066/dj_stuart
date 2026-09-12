@@ -512,7 +512,8 @@ section > .container > h2.center { margin-left: auto; margin-right: auto; max-wi
 }
 .bio-track {
   display: flex;
-  gap: 22px;
+  align-items: center;
+  gap: 10px;
   overflow-x: auto;
   overflow-y: hidden;
   scroll-snap-type: x mandatory;
@@ -520,12 +521,12 @@ section > .container > h2.center { margin-left: auto; margin-right: auto; max-wi
   scrollbar-width: none;
   overscroll-behavior-x: contain;
   touch-action: pan-x pan-y;
-  padding: 28px 21%;
-  scroll-padding-inline: 21%;
+  padding: 46px 19%;
+  scroll-padding-inline: 19%;
 }
 .bio-track::-webkit-scrollbar { display: none; }
 .bio-slide {
-  flex: 0 0 58%;
+  flex: 0 0 62%;
   scroll-snap-align: center;
   scroll-snap-stop: always;
   display: grid;
@@ -536,24 +537,24 @@ section > .container > h2.center { margin-left: auto; margin-right: auto; max-wi
   border-radius: 22px;
   background: linear-gradient(145deg, rgba(255,255,255,.07), rgba(255,255,255,.018));
   box-shadow: 0 26px 70px rgba(0,0,0,.4);
-  opacity: .42;
-  filter: blur(4px) saturate(.65);
-  transform: scale(.76);
+  opacity: .26;
+  filter: blur(5px) saturate(.55);
+  transform: scale(.5);
   transform-origin: center;
-  transition: transform .45s cubic-bezier(.2,.75,.25,1), opacity .45s ease, filter .45s ease, box-shadow .45s ease, border-color .45s ease;
+  transition: transform .58s cubic-bezier(.2,.8,.2,1), opacity .48s ease, filter .48s ease, box-shadow .48s ease, border-color .48s ease;
 }
 .bio-slide.active {
   z-index: 2;
   opacity: 1;
   filter: blur(0) saturate(1);
-  transform: scale(1);
+  transform: scale(1.06);
   border-color: rgba(193,60,255,.5);
   box-shadow: 0 28px 80px rgba(0,0,0,.52), 0 0 44px rgba(124,58,237,.2);
 }
 .bio-video {
   position: relative;
   min-height: 0;
-  aspect-ratio: 16/9;
+  aspect-ratio: 4/3;
   overflow: hidden;
   display: grid;
   place-items: center;
@@ -598,15 +599,16 @@ section > .container > h2.center { margin-left: auto; margin-right: auto; max-wi
   display: flex;
   flex-direction: column;
   justify-content: center;
-  min-height: 150px;
-  padding: 24px 30px 28px;
+  min-height: 82px;
+  padding: 14px 20px 16px;
 }
 .bio-caption p {
   color: var(--text) !important;
   font-family: var(--ff-display);
-  font-size: clamp(.96rem, 1.35vw, 1.15rem);
-  font-weight: 500;
-  line-height: 1.5;
+  font-size: clamp(.76rem, .95vw, .9rem);
+  font-weight: 400;
+  line-height: 1.45;
+  color: rgba(244,244,248,.72) !important;
 }
 .bio-arrow {
   position: absolute;
@@ -1114,12 +1116,12 @@ section > .container > h2.center { margin-left: auto; margin-right: auto; max-wi
   .about-heading { margin-bottom: 28px; text-align: left; }
   .about-heading h2 { font-size: clamp(2rem, 10vw, 2.8rem); }
   .bio-carousel { width: calc(100% + 48px); margin-left: -24px; padding: 0 0 42px; }
-  .bio-track { gap: 8px; padding: 16px 12%; scroll-padding-inline: 12%; }
-  .bio-slide { flex-basis: 76%; grid-template-columns: 1fr; min-height: 0; transform: scale(.82); filter: blur(2.5px) saturate(.7); }
-  .bio-slide.active { transform: scale(1); filter: none; }
-  .bio-video { min-height: 0; aspect-ratio: 16/9; }
-  .bio-caption { min-height: 155px; padding: 20px 20px 24px; justify-content: flex-start; }
-  .bio-caption p { font-size: .92rem; line-height: 1.48; }
+  .bio-track { gap: 4px; padding: 34px 14%; scroll-padding-inline: 14%; }
+  .bio-slide { flex-basis: 72%; grid-template-columns: 1fr; min-height: 0; transform: scale(.5); filter: blur(3px) saturate(.6); }
+  .bio-slide.active { transform: scale(1.04); filter: none; }
+  .bio-video { min-height: 0; aspect-ratio: 4/3; }
+  .bio-caption { min-height: 90px; padding: 13px 15px 16px; justify-content: flex-start; }
+  .bio-caption p { font-size: .74rem; line-height: 1.42; }
   .bio-arrow { display: none; }
   .bio-swipe-hint {
     display: block;

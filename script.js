@@ -68,43 +68,38 @@ let activeBioSlide = 1;
 function showBioSlide(index) {
   if (!bioTrack || !bioSlides.length) return;
   activeBioSlide = (index + bioSlides.length) % bioSlides.length;
-  const activeSlide = bioSlides[activeBioSlide];
-  bioSlides.forEach((slide, slideIndex) => slide.classList.toggle('active', slideIndex === activeBioSlide));
-  requestAnimationFrame(() => {
-    const targetLeft = activeSlide.offsetLeft - (bioTrack.clientWidth - activeSlide.offsetWidth) / 2;
-    bioTrack.scrollTo({ left: targetLeft, behavior: 'smooth' });
+  const previousIndex = (activeBioSlide - 1 + bioSlides.length) % bioSlides.length;
+  const nextIndex = (activeBioSlide + 1) % bioSlides.length;
+
+  bioSlides.forEach((slide, slideIndex) => {
+    slide.classList.toggle('active', slideIndex === activeBioSlide);
+    slide.classList.toggle('is-previous', slideIndex === previousIndex);
+    slide.classList.toggle('is-next', slideIndex === nextIndex);
+    slide.setAttribute('aria-hidden', String(slideIndex !== activeBioSlide));
   });
 }
 
 if (bioTrack) {
-  const centerInitialBioSlide = () => {
-    const initialSlide = bioSlides[activeBioSlide];
-    bioTrack.scrollLeft = initialSlide.offsetLeft - (bioTrack.clientWidth - initialSlide.offsetWidth) / 2;
-  };
-  requestAnimationFrame(centerInitialBioSlide);
-  window.addEventListener('load', centerInitialBioSlide, { once: true });
+  showBioSlide(activeBioSlide);
 
   bioPrev.addEventListener('click', () => showBioSlide(activeBioSlide - 1));
   bioNext.addEventListener('click', () => showBioSlide(activeBioSlide + 1));
 
-  let bioScrollTimer;
-  bioTrack.addEventListener('scroll', () => {
-    clearTimeout(bioScrollTimer);
-    bioScrollTimer = setTimeout(() => {
-      const trackCenter = bioTrack.scrollLeft + bioTrack.clientWidth / 2;
-      let closestIndex = 0;
-      let closestDistance = Infinity;
-      bioSlides.forEach((slide, index) => {
-        const slideCenter = slide.offsetLeft + slide.offsetWidth / 2;
-        const distance = Math.abs(trackCenter - slideCenter);
-        if (distance < closestDistance) {
-          closestDistance = distance;
-          closestIndex = index;
-        }
-      });
-      activeBioSlide = closestIndex;
-      bioSlides.forEach((slide, index) => slide.classList.toggle('active', index === activeBioSlide));
-    }, 80);
+  bioSlides.forEach((slide) => {
+    slide.addEventListener('click', () => {
+      if (slide.classList.contains('is-previous')) showBioSlide(activeBioSlide - 1);
+      if (slide.classList.contains('is-next')) showBioSlide(activeBioSlide + 1);
+    });
+  });
+
+  let touchStartX = 0;
+  bioTrack.addEventListener('touchstart', (event) => {
+    touchStartX = event.changedTouches[0].clientX;
+  }, { passive: true });
+  bioTrack.addEventListener('touchend', (event) => {
+    const distance = event.changedTouches[0].clientX - touchStartX;
+    if (Math.abs(distance) < 45) return;
+    showBioSlide(activeBioSlide + (distance < 0 ? 1 : -1));
   }, { passive: true });
 
   bioTrack.addEventListener('keydown', (event) => {

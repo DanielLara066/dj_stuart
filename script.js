@@ -39,7 +39,7 @@ form.addEventListener('submit', (e) => {
 });
 
 const revealTargets = document.querySelectorAll(
-  '.about-grid, .profile-panel, .mix-card, .gallery-item, .social-pill'
+  '.about-grid, .profile-panel, .social-pill'
 );
 
 const observer = new IntersectionObserver(

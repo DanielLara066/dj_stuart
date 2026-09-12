@@ -54,23 +54,28 @@
     <div class="container about-content">
       <div class="about-heading">
         <h2>Momentos inesquecíveis e transições hipnóticas para o seu evento!</h2>
-        <p>Arraste para o lado e conheça um pouco da trajetória de Stuart.</p>
       </div>
 
       <div class="bio-carousel" id="bioCarousel" aria-label="Biografia de Stuart em carrossel">
         <button class="bio-arrow bio-arrow-prev" type="button" aria-label="Slide anterior">&#8592;</button>
         <div class="bio-track" id="bioTrack" tabindex="0">
           <article class="bio-slide active" aria-label="1 de 3">
-            <div class="bio-video demo-video demo-video-one" role="img" aria-label="Espaço demonstrativo do primeiro vídeo">
-              <span class="bio-play" aria-hidden="true">▶</span>
+            <div class="bio-video-wrap">
+              <video class="bio-video" autoplay muted loop playsinline preload="metadata" aria-label="Stuart se apresentando">
+                <source src="assets/stuart-trajetoria-web.mp4" type="video/mp4">
+              </video>
+              <button class="video-sound-toggle" type="button" aria-label="Ativar som do vídeo">🔇 Ativar som</button>
             </div>
             <div class="bio-caption bio-caption-long">
               <p>Luiz Fernando, dono do projeto “Stuart”, iniciou sua jornada ainda muito novo. Aos 10 anos, começou sua paixão pela discotecagem através do EDM e do House, tendo o primeiro contato com o Psytrance aos 16 anos. Nascido e criado em Minas Gerais, terra do pão de queijo, encantou-se com a linha sonora hipnótica e psicodélica do Psytrance. Depois de muito estudo e aprendizado ao longo de sua trajetória, encontrou no Dark Prog a vertente com a qual mais se identifica.</p>
             </div>
           </article>
           <article class="bio-slide" aria-label="2 de 3">
-            <div class="bio-video demo-video demo-video-two" role="img" aria-label="Espaço demonstrativo do segundo vídeo">
-              <span class="bio-play" aria-hidden="true">▶</span>
+            <div class="bio-video-wrap">
+              <video class="bio-video" autoplay muted loop playsinline preload="metadata" aria-label="Set hipnótico de Stuart">
+                <source src="assets/stuart-set-hipnotico-web.mp4" type="video/mp4">
+              </video>
+              <button class="video-sound-toggle" type="button" aria-label="Ativar som do vídeo">🔇 Ativar som</button>
             </div>
             <div class="bio-caption bio-caption-long">
               <p>Stuart carrega em sua bagagem linhas progressivas e hipnotizantes. Seu som é como um alívio para o ouvinte, trazendo sensações de descarrego e conforto de forma envolvente, com um swing especial que apenas o Dark Prog pode proporcionar!</p>
@@ -86,7 +91,6 @@
           </article>
         </div>
         <button class="bio-arrow bio-arrow-next" type="button" aria-label="Próximo slide">&#8594;</button>
-        <p class="bio-swipe-hint">Arraste para o lado <span aria-hidden="true">↔</span></p>
       </div>
 
       <div class="genre-tags">

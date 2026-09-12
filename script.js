@@ -110,6 +110,29 @@ if (bioTrack) {
 
 const supportsFineCursor = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
 
+document.querySelectorAll('.video-sound-toggle').forEach((button) => {
+  button.addEventListener('click', (event) => {
+    event.stopPropagation();
+    const video = button.previousElementSibling;
+    const enableSound = video.muted;
+
+    document.querySelectorAll('.bio-video').forEach((item) => {
+      item.muted = true;
+    });
+    document.querySelectorAll('.video-sound-toggle').forEach((item) => {
+      item.textContent = '🔇 Ativar som';
+      item.setAttribute('aria-label', 'Ativar som do vídeo');
+    });
+
+    if (enableSound) {
+      video.muted = false;
+      video.play();
+      button.textContent = '🔊 Desativar som';
+      button.setAttribute('aria-label', 'Desativar som do vídeo');
+    }
+  });
+});
+
 if (supportsFineCursor) {
   document.body.classList.add('custom-cursor');
 

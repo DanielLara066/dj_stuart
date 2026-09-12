@@ -552,16 +552,35 @@ section > .container > h2.center { margin-left: auto; margin-right: auto; max-wi
   border-color: rgba(193,60,255,.5);
   box-shadow: 0 28px 80px rgba(0,0,0,.52), 0 0 44px rgba(112, 21, 209,.2);
 }
-.bio-video {
+.bio-video-wrap {
   position: relative;
-  min-height: 0;
   aspect-ratio: 4/3;
   overflow: hidden;
+}
+.bio-video {
+  min-height: 0;
+  height: 100%;
   display: grid;
   place-items: center;
   background-image: linear-gradient(to top, rgba(10,10,15,.78), rgba(10,10,15,.08) 60%), url("assets/dj-stuart-portrait.jpg");
   background-size: cover;
   background-position: center 30%;
+  width: 100%;
+  object-fit: cover;
+}
+.video-sound-toggle {
+  position: absolute;
+  right: 14px;
+  bottom: 14px;
+  z-index: 4;
+  padding: 9px 13px;
+  border: 1px solid rgba(255,255,255,.45);
+  border-radius: 999px;
+  color: #fff;
+  background: rgba(8,8,12,.72);
+  backdrop-filter: blur(8px);
+  font: 600 .78rem/1 Inter, sans-serif;
+  cursor: pointer;
 }
 .demo-video-two { background-position: 42% top; filter: saturate(.75) hue-rotate(16deg); }
 .demo-video-three { background-position: 58% top; filter: contrast(1.12) saturate(1.15); }

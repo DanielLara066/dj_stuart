@@ -500,9 +500,9 @@ section > .container > h2.center { margin-left: auto; margin-right: auto; max-wi
 .about-heading > p:last-child { color: var(--text-dim); }
 .bio-carousel {
   position: relative;
-  width: min(100%, 980px);
+  width: min(100%, 1160px);
   margin: 0 auto;
-  padding: 0 62px 44px;
+  padding: 0 58px 20px;
 }
 .bio-track {
   display: flex;
@@ -514,17 +514,17 @@ section > .container > h2.center { margin-left: auto; margin-right: auto; max-wi
   scrollbar-width: none;
   overscroll-behavior-x: contain;
   touch-action: pan-x pan-y;
-  padding: 32px 15%;
-  scroll-padding-inline: 15%;
+  padding: 28px 21%;
+  scroll-padding-inline: 21%;
 }
 .bio-track::-webkit-scrollbar { display: none; }
 .bio-slide {
-  flex: 0 0 70%;
+  flex: 0 0 58%;
   scroll-snap-align: center;
   scroll-snap-stop: always;
   display: grid;
-  grid-template-columns: minmax(270px, .82fr) minmax(300px, 1.18fr);
-  min-height: 530px;
+  grid-template-columns: 1fr;
+  min-height: 0;
   overflow: hidden;
   border: 1px solid rgba(255,255,255,.12);
   border-radius: 22px;
@@ -532,7 +532,7 @@ section > .container > h2.center { margin-left: auto; margin-right: auto; max-wi
   box-shadow: 0 26px 70px rgba(0,0,0,.4);
   opacity: .42;
   filter: blur(4px) saturate(.65);
-  transform: scale(.84);
+  transform: scale(.76);
   transform-origin: center;
   transition: transform .45s cubic-bezier(.2,.75,.25,1), opacity .45s ease, filter .45s ease, box-shadow .45s ease, border-color .45s ease;
 }
@@ -546,13 +546,14 @@ section > .container > h2.center { margin-left: auto; margin-right: auto; max-wi
 }
 .bio-video {
   position: relative;
-  min-height: 530px;
+  min-height: 0;
+  aspect-ratio: 16/9;
   overflow: hidden;
   display: grid;
   place-items: center;
   background-image: linear-gradient(to top, rgba(10,10,15,.78), rgba(10,10,15,.08) 60%), url("assets/dj-stuart-portrait.jpg");
   background-size: cover;
-  background-position: center top;
+  background-position: center 30%;
 }
 .demo-video-two { background-position: 42% top; filter: saturate(.75) hue-rotate(16deg); }
 .demo-video-three { background-position: 58% top; filter: contrast(1.12) saturate(1.15); }
@@ -591,18 +592,13 @@ section > .container > h2.center { margin-left: auto; margin-right: auto; max-wi
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: clamp(34px, 6vw, 70px);
-}
-.bio-number {
-  margin-bottom: 24px;
-  color: var(--accent);
-  font-family: var(--ff-street);
-  font-size: 1rem;
+  min-height: 150px;
+  padding: 24px 30px 28px;
 }
 .bio-caption p {
   color: var(--text) !important;
   font-family: var(--ff-display);
-  font-size: clamp(1.18rem, 2.2vw, 1.75rem);
+  font-size: clamp(.96rem, 1.35vw, 1.15rem);
   font-weight: 500;
   line-height: 1.5;
 }
@@ -625,26 +621,6 @@ section > .container > h2.center { margin-left: auto; margin-right: auto; max-wi
 .bio-arrow:hover { background: var(--accent-2); border-color: var(--accent-2); transform: scale(1.08); }
 .bio-arrow-prev { left: 0; }
 .bio-arrow-next { right: 0; }
-.bio-dots {
-  position: absolute;
-  left: 50%;
-  bottom: 9px;
-  transform: translateX(-50%);
-  display: flex;
-  align-items: center;
-  gap: 9px;
-}
-.bio-dot {
-  width: 8px;
-  height: 8px;
-  padding: 0;
-  border: 0;
-  border-radius: 999px;
-  background: rgba(255,255,255,.26);
-  cursor: pointer;
-  transition: width .25s ease, background .25s ease;
-}
-.bio-dot.active { width: 28px; background: linear-gradient(90deg, var(--accent), var(--accent-2)); }
 .bio-swipe-hint { display: none; }
 .about-content > .genre-tags { justify-content: center; margin-top: 30px; }
 .about-media {
@@ -1131,14 +1107,13 @@ section > .container > h2.center { margin-left: auto; margin-right: auto; max-wi
   .about { padding: 90px 0; }
   .about-heading { margin-bottom: 28px; text-align: left; }
   .about-heading h2 { font-size: clamp(2rem, 10vw, 2.8rem); }
-  .bio-carousel { width: calc(100% + 24px); margin-left: -12px; padding: 0 12px 48px; }
-  .bio-track { gap: 12px; padding: 18px 9%; scroll-padding-inline: 9%; }
-  .bio-slide { flex-basis: 82%; grid-template-columns: 1fr; min-height: 0; transform: scale(.9); filter: blur(2.5px) saturate(.7); }
+  .bio-carousel { width: calc(100% + 48px); margin-left: -24px; padding: 0 0 42px; }
+  .bio-track { gap: 8px; padding: 16px 12%; scroll-padding-inline: 12%; }
+  .bio-slide { flex-basis: 76%; grid-template-columns: 1fr; min-height: 0; transform: scale(.82); filter: blur(2.5px) saturate(.7); }
   .bio-slide.active { transform: scale(1); filter: none; }
-  .bio-video { min-height: 420px; aspect-ratio: 4/5; }
-  .bio-caption { min-height: 245px; padding: 30px 25px 34px; justify-content: flex-start; }
-  .bio-caption p { font-size: 1.15rem; line-height: 1.52; }
-  .bio-number { margin-bottom: 14px; }
+  .bio-video { min-height: 0; aspect-ratio: 16/9; }
+  .bio-caption { min-height: 155px; padding: 20px 20px 24px; justify-content: flex-start; }
+  .bio-caption p { font-size: .92rem; line-height: 1.48; }
   .bio-arrow { display: none; }
   .bio-swipe-hint {
     display: block;

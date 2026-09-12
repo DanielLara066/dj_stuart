@@ -34,8 +34,11 @@ const formNote = document.getElementById('formNote');
 
 form.addEventListener('submit', (e) => {
   e.preventDefault();
-  formNote.textContent = 'Mensagem enviada! Retornaremos em breve.';
-  form.reset();
+  const data = new FormData(form);
+  const subject = encodeURIComponent('Contato pelo portfólio — ' + data.get('name'));
+  const body = encodeURIComponent('Nome: ' + data.get('name') + '\nE-mail: ' + data.get('email') + '\n\n' + data.get('message'));
+  window.location.href = 'mailto:stuartpsyl@gmail.com?subject=' + subject + '&body=' + body;
+  formNote.textContent = 'Finalize o envio no seu aplicativo de e-mail. Se ele não abrir, use o endereço ao lado.';
 });
 
 const revealTargets = document.querySelectorAll(
@@ -76,6 +79,16 @@ function showBioSlide(index) {
     slide.classList.toggle('is-previous', slideIndex === previousIndex);
     slide.classList.toggle('is-next', slideIndex === nextIndex);
     slide.setAttribute('aria-hidden', String(slideIndex !== activeBioSlide));
+    const video = slide.querySelector('video');
+    if (video) {
+      video.muted = true;
+      updateSoundButton(slide);
+      if (slideIndex === activeBioSlide) startBioVideo(video);
+      else video.pause();
+    }
+    slide.querySelectorAll('button').forEach(button => {
+      button.tabIndex = slideIndex === activeBioSlide ? 0 : -1;
+    });
   });
 }
 
@@ -110,26 +123,71 @@ if (bioTrack) {
 
 const supportsFineCursor = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
 
-document.querySelectorAll('.video-sound-toggle').forEach((button) => {
-  button.addEventListener('click', (event) => {
-    event.stopPropagation();
-    const video = button.previousElementSibling;
-    const enableSound = video.muted;
+function updateSoundButton(slide) {
+  const video = slide.querySelector('video');
+  const button = slide.querySelector('.video-sound-toggle');
+  if (!video || !button) return;
+  button.textContent = video.muted ? 'Ativar som' : 'Desativar som';
+  button.setAttribute('aria-label', button.textContent + ' do vídeo');
+  button.setAttribute('aria-pressed', String(!video.muted));
+}
 
-    document.querySelectorAll('.bio-video').forEach((item) => {
-      item.muted = true;
+async function startBioVideo(video) {
+  const wrap = video.closest('.bio-video-wrap');
+  let fallback = wrap.querySelector('.video-start');
+  if (!fallback) {
+    fallback = document.createElement('button');
+    fallback.type = 'button';
+    fallback.className = 'video-start';
+    fallback.textContent = 'Reproduzir vídeo';
+    fallback.hidden = true;
+    fallback.addEventListener('click', event => {
+      event.stopPropagation();
+      startBioVideo(video);
     });
-    document.querySelectorAll('.video-sound-toggle').forEach((item) => {
-      item.textContent = '🔇 Ativar som';
-      item.setAttribute('aria-label', 'Ativar som do vídeo');
-    });
-
-    if (enableSound) {
-      video.muted = false;
-      video.play();
-      button.textContent = '🔊 Desativar som';
-      button.setAttribute('aria-label', 'Desativar som do vídeo');
+    wrap.append(fallback);
+  }
+  try {
+    await video.play();
+    if (!video.closest('.bio-slide').classList.contains('active') || document.hidden) {
+      video.muted = true;
+      video.pause();
     }
+    fallback.hidden = true;
+  } catch (error) {
+    if (error.name !== 'AbortError') {
+      video.muted = true;
+      updateSoundButton(video.closest('.bio-slide'));
+      fallback.hidden = false;
+    }
+  }
+}
+
+document.querySelectorAll('.video-sound-toggle').forEach(button => {
+  button.addEventListener('click', async event => {
+    event.stopPropagation();
+    const slide = button.closest('.bio-slide');
+    const video = slide.querySelector('video');
+    if (!slide.classList.contains('active')) return;
+    const enableSound = video.muted;
+    bioSlides.forEach(item => {
+      const other = item.querySelector('video');
+      if (other) other.muted = true;
+      updateSoundButton(item);
+    });
+    video.muted = !enableSound;
+    updateSoundButton(slide);
+    await startBioVideo(video);
+  });
+});
+document.addEventListener('visibilitychange', () => {
+  bioSlides.forEach(slide => {
+    const video = slide.querySelector('video');
+    if (!video) return;
+    video.muted = true;
+    updateSoundButton(slide);
+    if (document.hidden) video.pause();
+    else if (slide.classList.contains('active')) startBioVideo(video);
   });
 });
 

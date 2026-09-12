@@ -791,6 +791,8 @@ section > .container > h2.center { margin-left: auto; margin-right: auto; max-wi
   letter-spacing: -.03em;
   text-transform: uppercase;
 }
+.profile-panel-heading h2 a { transition: opacity .2s ease; }
+.profile-panel-heading h2 a:hover { opacity: .68; }
 .profile-panel-heading p {
   color: var(--text-dim);
   font-size: .76rem;
@@ -888,6 +890,11 @@ section > .container > h2.center { margin-left: auto; margin-right: auto; max-wi
   border: 1px solid rgba(255,255,255,.16);
   border-radius: 12px;
   background: #09090b;
+}
+.instagram-embed {
+  min-height: 620px;
+  background: #fff;
+  pointer-events: auto;
 }
 @media (max-width: 1100px) {
   .profile-hub { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -1236,6 +1243,7 @@ section > .container > h2.center { margin-left: auto; margin-right: auto; max-wi
   .gallery-grid { grid-template-columns: repeat(2, 1fr); }
   .profile-panel-heading { align-items: flex-start; min-height: 92px; }
   .profile-link { min-width: 116px; padding: 10px 14px; }
+  .instagram-embed { min-height: 540px; height: 540px; }
   .about { padding: 90px 0; }
   .about-heading { margin-bottom: 28px; text-align: left; }
   .about-heading h2 { font-size: clamp(2rem, 10vw, 2.8rem); }

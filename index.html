@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DJ Stuart | DJ & Produtor de Música Eletrônica</title>
+<meta name="description" content="Portfólio oficial de DJ Stuart — DJ e produtor de música eletrônica. Sets, lançamentos e contato para bookings.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=Bungee&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<link rel="icon" href="assets/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="assets/favicon-16.png" sizes="16x16" type="image/png">
+<link rel="icon" href="assets/favicon-48.png" sizes="48x48" type="image/png">
+<link rel="icon" href="assets/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+</head>
+<body>
+
+<div class="cursor-ring" id="cursorRing"></div>
+<div class="cursor-dot" id="cursorDot"></div>
+
+<div class="noise-overlay"></div>
+
+<header class="site-header" id="top">
+  <nav class="nav container">
+    <a href="#top" class="logo"><img src="assets/logo.png" alt="DJ Stuart" class="logo-img"></a>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#sobre">Sobre</a></li>
+      <li><a href="#faixas">Faixas</a></li>
+      <li><a href="#mixes">Mixes</a></li>
+      <li><a href="#galeria">Galeria</a></li>
+      <li><a href="#contato" class="nav-cta">Contato</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+
+  <!-- HERO (v2) -->
+  <section class="hero" id="hero">
+    <div class="hero-portrait" role="img" aria-label="DJ Stuart com fone de ouvido"></div>
+    <div class="hero-glow"></div>
+    <div class="container hero-inner">
+      <h1><img src="assets/logo-full.png" alt="DJ Stuart" class="hero-logo"></h1>
+      <div class="hero-actions">
+        <a href="https://wa.me/5531996862842" target="_blank" rel="noopener" class="btn btn-primary btn-whatsapp">WhatsApp</a>
+        <a href="https://www.instagram.com/sstuartt_" target="_blank" rel="noopener" class="btn btn-primary btn-instagram">Instagram</a>
+      </div>
+    </div>
+    <a href="#sobre" class="scroll-cue" aria-label="Rolar para baixo"><span></span></a>
+  </section>
+
+  <!-- STATS STRIP -->
+  <section class="stats">
+    <div class="container social-pills">
+      <a href="https://www.instagram.com/sstuartt_" target="_blank" rel="noopener" class="social-pill social-instagram">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.2c2.7 0 3 0 4.1.06 1.1.05 1.8.22 2.4.46.6.24 1.1.56 1.6 1.05.5.5.8 1 1.05 1.6.24.6.4 1.3.46 2.4.06 1.1.06 1.4.06 4.1s0 3-.06 4.1c-.05 1.1-.22 1.8-.46 2.4a4.4 4.4 0 0 1-1.05 1.6c-.5.5-1 .8-1.6 1.05-.6.24-1.3.4-2.4.46-1.1.06-1.4.06-4.1.06s-3 0-4.1-.06c-1.1-.05-1.8-.22-2.4-.46a4.4 4.4 0 0 1-1.6-1.05 4.4 4.4 0 0 1-1.05-1.6c-.24-.6-.4-1.3-.46-2.4C2.2 15 2.2 14.7 2.2 12s0-3 .06-4.1c.05-1.1.22-1.8.46-2.4.24-.6.56-1.1 1.05-1.6.5-.5 1-.8 1.6-1.05.6-.24 1.3-.4 2.4-.46C9 2.2 9.3 2.2 12 2.2Zm0 1.98c-2.65 0-2.96 0-4.02.06-.9.04-1.4.19-1.72.31-.43.17-.74.37-1.07.7-.33.33-.53.64-.7 1.07-.12.32-.27.82-.31 1.72C4.12 9.04 4.12 9.35 4.12 12s0 2.96.06 4.02c.04.9.19 1.4.31 1.72.17.43.37.74.7 1.07.33.33.64.53 1.07.7.32.12.82.27 1.72.31 1.06.06 1.37.06 4.02.06s2.96 0 4.02-.06c.9-.04 1.4-.19 1.72-.31.43-.17.74-.37 1.07-.7.33-.33.53-.64.7-1.07.12-.32.27-.82.31-1.72.06-1.06.06-1.37.06-4.02s0-2.96-.06-4.02c-.04-.9-.19-1.4-.31-1.72a2.8 2.8 0 0 0-.7-1.07 2.8 2.8 0 0 0-1.07-.7c-.32-.12-.82-.27-1.72-.31C14.96 4.18 14.65 4.18 12 4.18Zm0 3.37a4.45 4.45 0 1 1 0 8.9 4.45 4.45 0 0 1 0-8.9Zm0 1.98a2.47 2.47 0 1 0 0 4.94 2.47 2.47 0 0 0 0-4.94Zm4.66-2.2a1.04 1.04 0 1 1 0 2.08 1.04 1.04 0 0 1 0-2.08Z"/></svg>
+        <span>Instagram</span>
+      </a>
+      <a href="#" class="social-pill social-soundcloud">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8.6 9.4c-.2 0-.35.15-.38.36l-.42 4.3.42 4.15c.03.21.18.36.38.36.2 0 .35-.15.37-.36l.48-4.15-.48-4.3a.37.37 0 0 0-.37-.36Zm2.35-1.28a.4.4 0 0 0-.4.4l-.4 5.54.4 4.15c0 .22.18.4.4.4.22 0 .4-.18.4-.4l.45-4.15-.45-5.54a.4.4 0 0 0-.4-.4Zm-4.72 2.7c-.18 0-.32.14-.34.33l-.34 2.63.34 2.55c.02.19.16.33.34.33.18 0 .32-.14.34-.33l.38-2.55-.38-2.63a.34.34 0 0 0-.34-.33Zm-2.36 1.15c-.16 0-.28.13-.3.3l-.27 1.51.27 1.47c.02.17.14.3.3.3.16 0 .28-.13.3-.3l.31-1.47-.31-1.51c-.02-.17-.14-.3-.3-.3Zm7.13-5.6a.45.45 0 0 0-.45.45l-.36 6.9.36 4.14c0 .24.2.44.45.44.24 0 .44-.2.44-.44l.4-4.14-.4-6.9a.45.45 0 0 0-.44-.45Zm2.42-.6a.48.48 0 0 0-.48.48l-.33 7.47.33 4.1c0 .27.21.48.48.48s.48-.21.48-.48l.38-4.1-.38-7.47a.48.48 0 0 0-.48-.48Zm7.6 5.5a3.7 3.7 0 0 0-1.5.32 5.2 5.2 0 0 0-5.02-3.9c-.32 0-.63.28-.63.63v11.1c0 .3.24.58.55.6.05 0 6.98 0 7.1 0a2.9 2.9 0 0 0 2.9-2.87 2.9 2.9 0 0 0-2.9-2.88 3 3 0 0 0-.5.05v-2.9a.15.15 0 0 0 0-.15Z"/></svg>
+        <span>SoundCloud</span>
+      </a>
+      <a href="#" class="social-pill social-spotify">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2Zm4.59 14.4a.62.62 0 0 1-.86.21c-2.36-1.44-5.32-1.77-8.82-.97a.62.62 0 1 1-.27-1.21c3.83-.88 7.12-.5 9.74 1.1.3.19.4.58.21.87Zm1.22-2.72a.78.78 0 0 1-1.07.26c-2.7-1.66-6.82-2.14-10.02-1.17a.78.78 0 1 1-.45-1.49c3.65-1.11 8.18-.57 11.28 1.33.37.23.48.71.26 1.07Zm.1-2.83c-3.24-1.92-8.58-2.1-11.68-1.16a.93.93 0 1 1-.54-1.78c3.55-1.08 9.44-.87 13.16 1.34a.93.93 0 0 1-.94 1.6Z"/></svg>
+        <span>Spotify</span>
+      </a>
+      <a href="#" class="social-pill social-youtube">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.58 7.2a2.7 2.7 0 0 0-1.9-1.92C17.98 4.8 12 4.8 12 4.8s-5.98 0-7.68.48A2.7 2.7 0 0 0 2.42 7.2 28.3 28.3 0 0 0 1.94 12c0 1.62.16 3.24.48 4.8a2.7 2.7 0 0 0 1.9 1.92c1.7.48 7.68.48 7.68.48s5.98 0 7.68-.48a2.7 2.7 0 0 0 1.9-1.92c.32-1.56.48-3.18.48-4.8 0-1.62-.16-3.24-.48-4.8ZM9.94 15.3V8.7l5.7 3.3-5.7 3.3Z"/></svg>
+        <span>YouTube</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- SOBRE -->
+  <section class="about" id="sobre">
+    <div class="container about-grid">
+      <div class="about-media">
+        <img src="assets/dj-stuart-portrait.jpg" alt="Retrato de DJ Stuart" class="about-photo">
+      </div>
+      <div class="about-content">
+        <p class="eyebrow">Sobre</p>
+        <h2>Cada drop. Um impacto. Cada set. Uma experiência.</h2>
+        <p>Aos 24 anos, diretamente de Betim, Minas Gerais, DJ Stuart construiu sua identidade acreditando que música eletrônica não é apenas entretenimento — é energia, conexão e experiência. Cada apresentação nasce da paixão por reproduzir, selecionar e entregar faixas que transformam qualquer ambiente em uma pista pulsando do início ao fim.</p>
+        <p>Seu estilo é marcado por linhas pesadas, graves intensos e uma seleção que passeia entre o Techno, Progressive House, Melodic House e Deep House, sempre respeitando a essência de cada evento e conduzindo a pista com personalidade. Não existe playlist pronta: cada set é pensado em tempo real, acompanhando a energia do público e criando uma jornada sonora única.</p>
+        <p>Mais do que tocar músicas, Stuart busca criar momentos. A leitura da pista, a construção gradual da tensão e os drops no momento certo fazem parte de uma performance feita para quem vive a música eletrônica de verdade. Cada mixagem é executada com técnica, precisão e dedicação, mantendo a pista conectada durante toda a apresentação.</p>
+        <p>Apaixonado pela cultura eletrônica e em constante evolução, Stuart segue explorando novos sons, referências e possibilidades para entregar apresentações cada vez mais marcantes. Porque, no fim das contas, o objetivo nunca foi apenas tocar música — é fazer cada pessoa sentir a intensidade de cada batida.</p>
+        <div class="genre-tags">
+          <span class="genre-tag" tabindex="0" data-tooltip="Batidas repetitivas e hipnóticas em torno de 120–140 BPM, groove mecânico e cru feito pra pista não parar.">Techno</span>
+          <span class="genre-tag" tabindex="0" data-tooltip="House com melodias emotivas e atmosferas envolventes — mais sensação e clima do que peso de grave.">Melodic House</span>
+          <span class="genre-tag" tabindex="0" data-tooltip="Construção gradual de tensão, camadas que evoluem aos poucos e transições longas até o clímax.">Progressive</span>
+          <span class="genre-tag" tabindex="0" data-tooltip="Groove mais suave e noturno, graves profundos e balanço relaxado, sem perder o corpo da pista.">Deep House</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAIXAS -->
+  <section class="tracks" id="faixas">
+    <div class="container">
+      <p class="eyebrow center">Discografia</p>
+      <h2 class="center">Últimos Lançamentos</h2>
+      <div class="track-list">
+        <article class="track-card featured">
+          <span class="track-badge">Novo</span>
+          <div class="track-cover cosmic" role="img" aria-label="Capa de Meditando no Universo: figura em meditação sob uma mandala cósmica"></div>
+          <div class="track-info">
+            <h3>Meditando no Universo</h3>
+            <p>Single &middot; 2026</p>
+          </div>
+          <a href="https://open.spotify.com/album/68KY9vEFgqRJSB0u64mDbn" target="_blank" rel="noopener" class="track-play track-play-spotify" aria-label="Ouvir Meditando no Universo no Spotify">▶</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- MIXES -->
+  <section class="mixes" id="mixes">
+    <div class="container">
+      <p class="eyebrow center">Sets ao vivo</p>
+      <h2 class="center">Mixes &amp; Podcasts</h2>
+      <div class="mix-grid">
+        <div class="mix-card">
+          <div class="mix-thumb"><span class="play-icon">▶</span></div>
+          <h3>Warehouse Session — Techno Set</h3>
+          <p>1h30 &middot; Gravado ao vivo</p>
+        </div>
+        <div class="mix-card">
+          <div class="mix-thumb"><span class="play-icon">▶</span></div>
+          <h3>Sunset Terrace — Melodic Mix</h3>
+          <p>1h05 &middot; Estúdio</p>
+        </div>
+        <div class="mix-card">
+          <div class="mix-thumb"><span class="play-icon">▶</span></div>
+          <h3>Radio Podcast #12</h3>
+          <p>58min &middot; Rádio Pulse</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALERIA -->
+  <section class="gallery" id="galeria">
+    <div class="container">
+      <p class="eyebrow center">Registros</p>
+      <h2 class="center">Galeria</h2>
+      <div class="gallery-grid">
+        <div class="gallery-item g1"></div>
+        <div class="gallery-item g2"></div>
+        <div class="gallery-item g3"></div>
+        <div class="gallery-item g4"></div>
+        <div class="gallery-item g5"></div>
+        <div class="gallery-item g6"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTATO -->
+  <section class="contact" id="contato">
+    <div class="container contact-grid">
+      <div class="contact-info">
+        <p class="eyebrow">Bookings &amp; Contato</p>
+        <h2>Vamos criar algo juntos</h2>
+        <p>Disponível para shows, festivais, produções e colaborações. Preencha o formulário ou envie um e-mail direto.</p>
+        <a class="contact-email" href="mailto:contato@djstuart.com">contato@djstuart.com</a>
+      </div>
+      <form class="contact-form" id="contactForm">
+        <div class="form-row">
+          <label for="name">Nome</label>
+          <input type="text" id="name" name="name" required placeholder="Seu nome">
+        </div>
+        <div class="form-row">
+          <label for="email">E-mail</label>
+          <input type="email" id="email" name="email" required placeholder="seu@email.com">
+        </div>
+        <div class="form-row">
+          <label for="message">Mensagem</label>
+          <textarea id="message" name="message" rows="5" required placeholder="Conte sobre o evento ou proposta..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Enviar Mensagem</button>
+        <p class="form-note" id="formNote" role="status"></p>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <a href="#top" class="logo"><img src="assets/logo.png" alt="DJ Stuart" class="logo-img"></a>
+    <p>&copy; <span id="year"></span> DJ Stuart. Todos os direitos reservados.</p>
+    <a href="#top" class="back-to-top" aria-label="Voltar ao topo">↑</a>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

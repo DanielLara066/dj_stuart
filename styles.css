@@ -333,14 +333,10 @@ section > .container > h2.center { margin-left: auto; margin-right: auto; max-wi
 
 /* ===== Floating social buttons ===== */
 .floating-socials {
-  position: relative;
-  z-index: 2;
-  display: flex;
-  justify-content: flex-end;
-  max-width: var(--container);
-  margin: 0 auto;
-  padding: 46px 24px;
-  border-top: 1px solid var(--line);
+  position: fixed;
+  right: 18px;
+  bottom: 24px;
+  z-index: 90;
 }
 .social-pills {
   display: flex;
@@ -839,7 +835,10 @@ section > .container > h2.center { margin-left: auto; margin-right: auto; max-wi
   }
   .hero-logo { width: min(88vw, 410px); }
   .hero-portrait { background-position: center 50%; }
-  .floating-socials { padding: 36px 18px; }
+  .floating-socials {
+    right: 10px;
+    bottom: 14px;
+  }
   .floating-socials .social-pills { gap: 8px; }
   .floating-socials .social-pill {
     width: 44px;

@@ -63,7 +63,7 @@ const bioTrack = document.getElementById('bioTrack');
 const bioSlides = bioTrack ? [...bioTrack.querySelectorAll('.bio-slide')] : [];
 const bioPrev = document.querySelector('.bio-arrow-prev');
 const bioNext = document.querySelector('.bio-arrow-next');
-let activeBioSlide = 1;
+let activeBioSlide = 0;
 
 function showBioSlide(index) {
   if (!bioTrack || !bioSlides.length) return;

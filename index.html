@@ -53,31 +53,64 @@
 
   <!-- SOBRE -->
   <section class="about" id="sobre">
-    <div class="container about-grid">
-      <div class="about-media">
-        <div class="about-photo-frame">
-          <img src="assets/dj-stuart-portrait.jpg" alt="Retrato de DJ Stuart" class="about-photo">
-          <div class="about-photo-caption">
-            <span>DJ &amp; Produtor</span>
-            <strong>DJ-STUART</strong>
-          </div>
-        </div>
-      </div>
-      <div class="about-content">
+    <div class="container about-content">
+      <div class="about-heading">
         <p class="eyebrow">Sobre</p>
         <h2>Cada drop. Um impacto. Cada set. Uma experiência.</h2>
-        <p class="about-lead">Aos 24 anos, diretamente de Betim, Minas Gerais, DJ Stuart construiu sua identidade acreditando que música eletrônica não é apenas entretenimento — é energia, conexão e experiência. Cada apresentação nasce da paixão por reproduzir, selecionar e entregar faixas que transformam qualquer ambiente em uma pista pulsando do início ao fim.</p>
-        <div class="about-story">
-          <p>Seu estilo é marcado por linhas pesadas, graves intensos e uma seleção que passeia entre o Techno, Progressive House, Melodic House e Deep House, sempre respeitando a essência de cada evento e conduzindo a pista com personalidade. Não existe playlist pronta: cada set é pensado em tempo real, acompanhando a energia do público e criando uma jornada sonora única.</p>
-          <p>Mais do que tocar músicas, Stuart busca criar momentos. A leitura da pista, a construção gradual da tensão e os drops no momento certo fazem parte de uma performance feita para quem vive a música eletrônica de verdade. Cada mixagem é executada com técnica, precisão e dedicação, mantendo a pista conectada durante toda a apresentação.</p>
-          <p>Apaixonado pela cultura eletrônica e em constante evolução, Stuart segue explorando novos sons, referências e possibilidades para entregar apresentações cada vez mais marcantes. Porque, no fim das contas, o objetivo nunca foi apenas tocar música — é fazer cada pessoa sentir a intensidade de cada batida.</p>
+        <p>Arraste para o lado e conheça um pouco da trajetória de DJ Stuart.</p>
+      </div>
+
+      <div class="bio-carousel" id="bioCarousel" aria-label="Biografia de DJ Stuart em carrossel">
+        <button class="bio-arrow bio-arrow-prev" type="button" aria-label="Slide anterior">&#8592;</button>
+        <div class="bio-track" id="bioTrack" tabindex="0">
+          <article class="bio-slide" aria-label="1 de 3">
+            <div class="bio-video demo-video demo-video-one" role="img" aria-label="Espaço demonstrativo do primeiro vídeo">
+              <span class="demo-label">Vídeo 01</span>
+              <span class="bio-play" aria-hidden="true">▶</span>
+              <span class="demo-note">Demonstração</span>
+            </div>
+            <div class="bio-caption">
+              <span class="bio-number">01</span>
+              <p>Aos 24 anos, diretamente de Betim, Minas Gerais, DJ Stuart construiu sua identidade acreditando que música eletrônica não é apenas entretenimento — é energia, conexão e experiência.</p>
+            </div>
+          </article>
+          <article class="bio-slide" aria-label="2 de 3">
+            <div class="bio-video demo-video demo-video-two" role="img" aria-label="Espaço demonstrativo do segundo vídeo">
+              <span class="demo-label">Vídeo 02</span>
+              <span class="bio-play" aria-hidden="true">▶</span>
+              <span class="demo-note">Demonstração</span>
+            </div>
+            <div class="bio-caption">
+              <span class="bio-number">02</span>
+              <p>Seu estilo une linhas pesadas, graves intensos e uma seleção entre Techno, Progressive, Melodic House e Deep House. Cada set é criado em tempo real, seguindo a energia da pista.</p>
+            </div>
+          </article>
+          <article class="bio-slide" aria-label="3 de 3">
+            <div class="bio-video demo-video demo-video-three" role="img" aria-label="Espaço demonstrativo do terceiro vídeo">
+              <span class="demo-label">Vídeo 03</span>
+              <span class="bio-play" aria-hidden="true">▶</span>
+              <span class="demo-note">Demonstração</span>
+            </div>
+            <div class="bio-caption">
+              <span class="bio-number">03</span>
+              <p>Mais do que tocar músicas, Stuart cria momentos. Técnica, precisão e leitura de pista transformam cada apresentação em uma jornada sonora única e marcante.</p>
+            </div>
+          </article>
         </div>
-        <div class="genre-tags">
-          <span class="genre-tag" tabindex="0" data-tooltip="Batidas repetitivas e hipnóticas em torno de 120–140 BPM, groove mecânico e cru feito pra pista não parar.">Techno</span>
-          <span class="genre-tag" tabindex="0" data-tooltip="House com melodias emotivas e atmosferas envolventes — mais sensação e clima do que peso de grave.">Melodic House</span>
-          <span class="genre-tag" tabindex="0" data-tooltip="Construção gradual de tensão, camadas que evoluem aos poucos e transições longas até o clímax.">Progressive</span>
-          <span class="genre-tag" tabindex="0" data-tooltip="Groove mais suave e noturno, graves profundos e balanço relaxado, sem perder o corpo da pista.">Deep House</span>
+        <button class="bio-arrow bio-arrow-next" type="button" aria-label="Próximo slide">&#8594;</button>
+        <div class="bio-dots" aria-label="Selecionar slide">
+          <button class="bio-dot active" type="button" aria-label="Ir para o slide 1" aria-current="true"></button>
+          <button class="bio-dot" type="button" aria-label="Ir para o slide 2"></button>
+          <button class="bio-dot" type="button" aria-label="Ir para o slide 3"></button>
         </div>
+        <p class="bio-swipe-hint">Arraste para o lado <span aria-hidden="true">↔</span></p>
+      </div>
+
+      <div class="genre-tags">
+        <span class="genre-tag" tabindex="0" data-tooltip="Batidas repetitivas e hipnóticas em torno de 120–140 BPM, groove mecânico e cru feito pra pista não parar.">Techno</span>
+        <span class="genre-tag" tabindex="0" data-tooltip="House com melodias emotivas e atmosferas envolventes — mais sensação e clima do que peso de grave.">Melodic House</span>
+        <span class="genre-tag" tabindex="0" data-tooltip="Construção gradual de tensão, camadas que evoluem aos poucos e transições longas até o clímax.">Progressive</span>
+        <span class="genre-tag" tabindex="0" data-tooltip="Groove mais suave e noturno, graves profundos e balanço relaxado, sem perder o corpo da pista.">Deep House</span>
       </div>
     </div>
   </section>
@@ -202,6 +235,10 @@
       <a href="https://www.youtube.com/@sstuartt" target="_blank" rel="noopener" class="social-pill social-youtube" aria-label="YouTube DJ Stuart">
         <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.58 7.2a2.7 2.7 0 0 0-1.9-1.92C17.98 4.8 12 4.8 12 4.8s-5.98 0-7.68.48A2.7 2.7 0 0 0 2.42 7.2 28.3 28.3 0 0 0 1.94 12c0 1.62.16 3.24.48 4.8a2.7 2.7 0 0 0 1.9 1.92c1.7.48 7.68.48 7.68.48s5.98 0 7.68-.48a2.7 2.7 0 0 0 1.9-1.92c.32-1.56.48-3.18.48-4.8 0-1.62-.16-3.24-.48-4.8ZM9.94 15.3V8.7l5.7 3.3-5.7 3.3Z"/></svg>
         <span>YouTube DJ Stuart</span>
+      </a>
+      <a href="https://www.tiktok.com/@stuart_wav?_r=1&amp;_t=ZS-99flLUfvrE7" target="_blank" rel="noopener" class="social-pill social-tiktok" aria-label="TikTok DJ Stuart">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.6 2c.35 2.03 1.55 3.25 3.64 3.38v3.25c-1.21.12-2.27-.28-3.6-.98v6.08c0 7.74-8.44 10.16-11.83 4.61-2.18-3.57-.84-9.83 6.15-10.08v3.43c-.4.07-.82.17-1.21.3-1.16.39-1.82 1.12-1.64 2.4.34 2.45 4.84 3.17 4.47-1.61V2h4.02Z"/></svg>
+        <span>TikTok DJ Stuart</span>
       </a>
     </div>
   </aside>

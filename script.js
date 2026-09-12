@@ -60,7 +60,10 @@ let activeBioSlide = 0;
 function showBioSlide(index) {
   if (!bioTrack || !bioSlides.length) return;
   activeBioSlide = (index + bioSlides.length) % bioSlides.length;
-  bioSlides[activeBioSlide].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+  const activeSlide = bioSlides[activeBioSlide];
+  const targetLeft = activeSlide.offsetLeft - (bioTrack.clientWidth - activeSlide.offsetWidth) / 2;
+  bioTrack.scrollTo({ left: targetLeft, behavior: 'smooth' });
+  bioSlides.forEach((slide, slideIndex) => slide.classList.toggle('active', slideIndex === activeBioSlide));
   bioDots.forEach((dot, dotIndex) => {
     const isActive = dotIndex === activeBioSlide;
     dot.classList.toggle('active', isActive);
@@ -90,6 +93,7 @@ if (bioTrack) {
         }
       });
       activeBioSlide = closestIndex;
+      bioSlides.forEach((slide, index) => slide.classList.toggle('active', index === activeBioSlide));
       bioDots.forEach((dot, index) => {
         const isActive = index === activeBioSlide;
         dot.classList.toggle('active', isActive);

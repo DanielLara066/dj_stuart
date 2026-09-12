@@ -192,10 +192,11 @@ section > .container > h2.center { margin-left: auto; margin-right: auto; max-wi
   border-bottom: 1px solid var(--line);
 }
 .nav {
+  max-width: none;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 18px 24px;
+  padding: 18px 28px;
 }
 .logo { display: inline-flex; align-items: center; }
 .logo-img { height: 34px; width: auto; display: block; }
@@ -744,6 +745,7 @@ section > .container > h2.center { margin-left: auto; margin-right: auto; max-wi
 }
 
 @media (max-width: 720px) {
+  .nav { padding: 16px 18px; }
   .nav-links {
     position: fixed;
     top: 68px; left: 0; right: 0;

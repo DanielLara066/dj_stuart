@@ -480,7 +480,11 @@ section > .container > h2.center { margin-left: auto; margin-right: auto; max-wi
   letter-spacing: 0.06em;
 }
 .about-photo-caption span { color: var(--text-dim); }
-.about-photo-caption strong { color: var(--spray); font-weight: 600; }
+.about-photo-caption strong {
+  color: #c13cff;
+  font-weight: 700;
+  text-shadow: 0 0 7px rgba(193, 60, 255, .95), 0 0 16px rgba(124, 58, 237, .8);
+}
 .about-content { padding-top: 10px; }
 .about-content h2 {
   max-width: 680px;

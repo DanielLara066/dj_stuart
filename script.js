@@ -40,8 +40,8 @@ form.addEventListener('submit', (e) => {
 
 const feedbackForm = document.getElementById('feedbackForm');
 const feedbackNote = document.getElementById('feedbackNote');
-const feedbackApiUrl = 'https://ep-fancy-sky-axcp6n2c.apirest.c-4.us-east-2.aws.neon.tech/neondb/rest/v1/feedbacks';
-const feedbackTokenUrl = 'https://ep-fancy-sky-axcp6n2c.neonauth.c-4.us-east-2.aws.neon.tech/neondb/auth/token/anonymous';
+const feedbackApiUrl = 'https://ep-empty-term-aeoyk44l.apirest.c-2.us-east-2.aws.neon.tech/neondb/rest/v1/feedbacks';
+const feedbackTokenUrl = 'https://ep-empty-term-aeoyk44l.neonauth.c-2.us-east-2.aws.neon.tech/neondb/auth/token/anonymous';
 
 if (feedbackForm && feedbackNote) {
   feedbackForm.addEventListener('submit', async (event) => {

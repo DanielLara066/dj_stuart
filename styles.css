@@ -1123,34 +1123,81 @@ section > .container > h2.center { margin-left: auto; margin-right: auto; max-wi
 /* ===== Contact ===== */
 .contact { padding: 120px 0; background: var(--bg-alt); position: relative; }
 .contact::before { background: var(--bg-alt); }
+.contact-section-heading { margin-bottom: 36px; }
+.contact-section-heading h2 { margin-top: 8px; }
 .contact-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 64px;
-  align-items: start;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  align-items: stretch;
 }
-.contact-info p { color: var(--text-dim); margin: 16px 0 24px; }
-.contact-email {
-  display: inline-block;
-  font-family: var(--ff-display);
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: var(--accent);
-  margin-bottom: 32px;
-  border-bottom: 1px solid transparent;
-  transition: border-color 0.2s ease;
-}
-.contact-email:hover { border-color: var(--accent); }
-.contact-socials { justify-content: flex-start; }
-
-.contact-form {
+.contact-card {
+  position: relative;
+  overflow: hidden;
   background: var(--surface);
   border: 1px solid var(--line);
   border-radius: var(--radius);
   padding: 32px;
 }
-.form-row { margin-bottom: 20px; }
-.form-row label {
+.contact-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent), transparent 72%);
+}
+.contact-card-heading {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding-bottom: 22px;
+  margin-bottom: 22px;
+  border-bottom: 1px solid var(--line);
+}
+.contact-card-number {
+  display: grid;
+  place-items: center;
+  flex: 0 0 42px;
+  height: 42px;
+  border: 1px solid rgba(176, 38, 255, 0.45);
+  border-radius: 50%;
+  color: var(--accent);
+  font-family: var(--ff-display);
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+.contact-card-label {
+  margin-bottom: 4px;
+  color: var(--accent);
+  font-family: var(--ff-display);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.contact-card h3 {
+  font-family: var(--ff-display);
+  font-size: clamp(1.35rem, 2vw, 1.9rem);
+  line-height: 1.15;
+}
+.contact-info p,
+.feedback-intro { color: var(--text-dim); margin: 0 0 18px; }
+.contact-email {
+  display: inline-block;
+  color: var(--accent);
+  font-family: var(--ff-display);
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 24px;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s ease;
+}
+.contact-email:hover { border-color: var(--accent); }
+.contact-form,
+.feedback-form { margin-top: auto; }
+.form-row { margin-bottom: 18px; }
+.form-row label,
+.rating-field legend {
   display: block;
   font-size: 0.8rem;
   font-weight: 500;
@@ -1167,13 +1214,53 @@ section > .container > h2.center { margin-left: auto; margin-right: auto; max-wi
   font-family: var(--ff-body);
   font-size: 0.95rem;
   resize: vertical;
-  transition: border-color 0.2s ease;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 .form-row input:focus, .form-row textarea:focus {
   outline: none;
   border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(176, 38, 255, 0.1);
 }
-.form-note { margin-top: 14px; font-size: 0.85rem; color: var(--accent); text-align: center; min-height: 1.2em; }
+.rating-field { border: 0; padding: 0; margin: 0 0 18px; }
+.rating-stars {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  gap: 8px;
+}
+.rating-stars input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+.rating-stars label {
+  color: #4b4b58;
+  cursor: pointer;
+  font-size: 2rem;
+  line-height: 1;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+.rating-stars label:hover,
+.rating-stars label:hover ~ label,
+.rating-stars input:checked ~ label {
+  color: var(--accent);
+  transform: translateY(-2px);
+}
+.feedback-button {
+  background: linear-gradient(135deg, #7c3aed, var(--accent));
+  color: #fff;
+  opacity: 0.72;
+  cursor: default;
+}
+.feedback-note,
+.form-note {
+  margin-top: 12px;
+  min-height: 1.2em;
+  color: var(--text-dim);
+  font-size: 0.8rem;
+  text-align: center;
+}
+.form-note { color: var(--accent); }
 
 /* ===== Footer ===== */
 .site-footer { padding: 40px 0; border-top: 1px solid var(--line); }

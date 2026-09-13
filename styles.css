@@ -1237,8 +1237,16 @@ section > .container > h2.center { margin-left: auto; margin-right: auto; max-wi
 .feedback-button {
   background: linear-gradient(135deg, #7c3aed, var(--accent));
   color: #fff;
-  opacity: 0.72;
-  cursor: default;
+  cursor: pointer;
+}
+.feedback-button:disabled { opacity: 0.6; cursor: wait; }
+.feedback-honeypot {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
 }
 .feedback-note,
 .form-note {
@@ -1294,6 +1302,7 @@ section > .container > h2.center { margin-left: auto; margin-right: auto; max-wi
   }
 
   .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+  .contact-grid { gap: 16px; }
   .about-media { position: static; }
   .about-photo-frame { max-width: 430px; margin: 0 auto; }
   .track-list { grid-template-columns: 1fr; }
@@ -1303,6 +1312,13 @@ section > .container > h2.center { margin-left: auto; margin-right: auto; max-wi
 }
 
 @media (max-width: 720px) {
+  .contact { padding: 56px 0; }
+  .contact-card { padding: 22px 18px; }
+  .contact-form,
+  .feedback-form { grid-template-columns: 1fr; }
+  .contact-form .form-row,
+  .feedback-form .form-row,
+  .rating-field { grid-column: 1; }
   .nav { padding: 16px 18px; }
   .site-header .logo { margin-left: 6px; }
   .nav-links {

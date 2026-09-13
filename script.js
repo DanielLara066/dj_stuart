@@ -38,6 +38,49 @@ form.addEventListener('submit', (e) => {
   form.reset();
 });
 
+const feedbackForm = document.getElementById('feedbackForm');
+const feedbackNote = document.getElementById('feedbackNote');
+
+if (feedbackForm && feedbackNote) {
+  feedbackForm.addEventListener('submit', async (event) => {
+    event.preventDefault();
+
+    if (!feedbackForm.reportValidity()) return;
+
+    const button = feedbackForm.querySelector('button[type="submit"]');
+    const formData = new FormData(feedbackForm);
+    const originalLabel = button.textContent;
+
+    button.disabled = true;
+    button.textContent = 'Enviando...';
+    feedbackNote.textContent = '';
+
+    try {
+      const response = await fetch('/api/feedback', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: formData.get('name'),
+          rating: Number(formData.get('rating')),
+          feedback: formData.get('feedback'),
+          website: formData.get('website')
+        })
+      });
+
+      const result = await response.json().catch(() => ({}));
+      if (!response.ok) throw new Error(result.error || 'Não foi possível enviar agora.');
+
+      feedbackForm.reset();
+      feedbackNote.textContent = 'Feedback enviado com sucesso! Obrigado.';
+    } catch (error) {
+      feedbackNote.textContent = error.message || 'Não foi possível enviar agora. Tente novamente.';
+    } finally {
+      button.disabled = false;
+      button.textContent = originalLabel;
+    }
+  });
+}
+
 const revealTargets = document.querySelectorAll(
   '.about-grid, .profile-panel, .social-pill'
 );
@@ -131,4 +174,3 @@ document.querySelectorAll('.video-sound-toggle').forEach((button) => {
     }
   });
 });
-

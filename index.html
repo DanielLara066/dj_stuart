@@ -180,15 +180,15 @@
             </div>
           </div>
           <p class="feedback-intro">Conte como foi sua experiência com o show, set ou evento do Stuart.</p>
-          <form class="feedback-form">
+          <form class="feedback-form" id="feedbackForm">
             <div class="form-row">
               <label for="feedbackName">Nome</label>
-              <input type="text" id="feedbackName" name="feedbackName" placeholder="Seu nome">
+              <input type="text" id="feedbackName" name="name" required maxlength="80" autocomplete="name" placeholder="Seu nome">
             </div>
             <fieldset class="rating-field">
               <legend>Sua avaliação</legend>
               <div class="rating-stars" aria-label="Avaliação de 1 a 5 estrelas">
-                <input type="radio" id="star5" name="rating" value="5"><label for="star5" aria-label="5 estrelas">★</label>
+                <input type="radio" id="star5" name="rating" value="5" required><label for="star5" aria-label="5 estrelas">★</label>
                 <input type="radio" id="star4" name="rating" value="4"><label for="star4" aria-label="4 estrelas">★</label>
                 <input type="radio" id="star3" name="rating" value="3"><label for="star3" aria-label="3 estrelas">★</label>
                 <input type="radio" id="star2" name="rating" value="2"><label for="star2" aria-label="2 estrelas">★</label>
@@ -197,10 +197,14 @@
             </fieldset>
             <div class="form-row">
               <label for="feedbackText">Feedback</label>
-              <textarea id="feedbackText" name="feedback" rows="3" placeholder="Escreva seu comentário..."></textarea>
+              <textarea id="feedbackText" name="feedback" rows="3" required minlength="10" maxlength="1000" placeholder="Escreva seu comentário..."></textarea>
             </div>
-            <button type="button" class="btn feedback-button btn-block" aria-disabled="true">Enviar feedback</button>
-            <p class="feedback-note">Envio disponível em breve.</p>
+            <div class="feedback-honeypot" aria-hidden="true">
+              <label for="feedbackWebsite">Não preencha este campo</label>
+              <input type="text" id="feedbackWebsite" name="website" tabindex="-1" autocomplete="off">
+            </div>
+            <button type="submit" class="btn feedback-button btn-block">Enviar feedback</button>
+            <p class="feedback-note" id="feedbackNote" role="status" aria-live="polite">Seu feedback será enviado para análise.</p>
           </form>
         </article>
       </div>

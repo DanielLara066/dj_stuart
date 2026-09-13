@@ -40,6 +40,8 @@ form.addEventListener('submit', (e) => {
 
 const feedbackForm = document.getElementById('feedbackForm');
 const feedbackNote = document.getElementById('feedbackNote');
+const feedbackApiUrl = 'https://ep-fancy-sky-axcp6n2c.apirest.c-4.us-east-2.aws.neon.tech/neondb/rest/v1/feedbacks';
+const feedbackTokenUrl = 'https://ep-fancy-sky-axcp6n2c.neonauth.c-4.us-east-2.aws.neon.tech/neondb/auth/token/anonymous';
 
 if (feedbackForm && feedbackNote) {
   feedbackForm.addEventListener('submit', async (event) => {
@@ -51,24 +53,43 @@ if (feedbackForm && feedbackNote) {
     const formData = new FormData(feedbackForm);
     const originalLabel = button.textContent;
 
+    if (formData.get('website')) {
+      feedbackForm.reset();
+      feedbackNote.textContent = 'Feedback enviado com sucesso! Obrigado.';
+      return;
+    }
+
     button.disabled = true;
     button.textContent = 'Enviando...';
     feedbackNote.textContent = '';
 
     try {
-      const response = await fetch('/api/feedback', {
+      const tokenResponse = await fetch(feedbackTokenUrl, {
+        headers: { 'Accept': 'application/json' },
+        cache: 'no-store'
+      });
+      const tokenResult = await tokenResponse.json().catch(() => ({}));
+
+      if (!tokenResponse.ok || !tokenResult.token) {
+        throw new Error('Não foi possível iniciar o envio. Tente novamente.');
+      }
+
+      const response = await fetch(feedbackApiUrl, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+          'Authorization': `Bearer ${tokenResult.token}`,
+          'Content-Type': 'application/json',
+          'Prefer': 'return=minimal'
+        },
         body: JSON.stringify({
           name: formData.get('name'),
           rating: Number(formData.get('rating')),
-          feedback: formData.get('feedback'),
-          website: formData.get('website')
+          message: formData.get('feedback')
         })
       });
 
       const result = await response.json().catch(() => ({}));
-      if (!response.ok) throw new Error(result.error || 'Não foi possível enviar agora.');
+      if (!response.ok) throw new Error(result.message || result.error || 'Não foi possível enviar agora.');
 
       feedbackForm.reset();
       feedbackNote.textContent = 'Feedback enviado com sucesso! Obrigado.';

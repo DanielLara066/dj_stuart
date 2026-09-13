@@ -1516,3 +1516,36 @@ section > .container > h2.center { margin-left: auto; margin-right: auto; max-wi
     background-position: center;
   }
 }
+
+/* ===== Minimal monochrome contact and feedback ===== */
+.contact-card::before { display: none; }
+.contact .contact-email,
+.contact .form-note { color: #e5e5e5; }
+.contact .contact-email:hover { border-color: #fff; }
+.contact .btn {
+  color: #080808;
+  background: #f5f5f5;
+  border: 1px solid #f5f5f5;
+  box-shadow: none;
+  transform: none;
+}
+.contact .btn:hover {
+  color: #fff;
+  background: #202020;
+  border-color: #d4d4d4;
+  box-shadow: none;
+  transform: none;
+}
+.contact .btn:focus-visible,
+.contact .rating-stars input:focus-visible + label {
+  outline: 2px solid #fff;
+  outline-offset: 4px;
+}
+.contact .form-row input:focus,
+.contact .form-row textarea:focus {
+  border-color: #bdbdbd;
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, .1);
+}
+.contact .rating-stars label:hover,
+.contact .rating-stars label:hover ~ label,
+.contact .rating-stars input:checked ~ label { color: #fff; }

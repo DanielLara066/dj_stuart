@@ -136,31 +136,76 @@
     </div>
   </section>
 
-  <!-- CONTATO -->
+  <!-- CONTATO E FEEDBACK -->
   <section class="contact" id="contato">
-    <div class="container contact-grid">
-      <div class="contact-info">
-        <p class="eyebrow">Bookings &amp; Contato</p>
-        <h2>Vamos criar algo juntos</h2>
-        <p>Disponível para shows, festivais, produções e colaborações. Preencha o formulário ou envie um e-mail direto.</p>
-        <a class="contact-email" href="mailto:stuartpsyl@gmail.com">stuartpsyl@gmail.com</a>
+    <div class="container">
+      <div class="contact-section-heading">
+        <p class="eyebrow">Bookings, contato &amp; feedback</p>
+        <h2>Fale com Stuart</h2>
       </div>
-      <form class="contact-form" id="contactForm">
-        <div class="form-row">
-          <label for="name">Nome</label>
-          <input type="text" id="name" name="name" required placeholder="Seu nome">
-        </div>
-        <div class="form-row">
-          <label for="email">E-mail</label>
-          <input type="email" id="email" name="email" required placeholder="seu@email.com">
-        </div>
-        <div class="form-row">
-          <label for="message">Mensagem</label>
-          <textarea id="message" name="message" rows="5" required placeholder="Conte sobre o evento ou proposta..."></textarea>
-        </div>
-        <button type="submit" class="btn btn-primary btn-block">Enviar Mensagem</button>
-        <p class="form-note" id="formNote" role="status"></p>
-      </form>
+      <div class="contact-grid">
+        <article class="contact-card">
+          <div class="contact-card-heading">
+            <span class="contact-card-number">01</span>
+            <div>
+              <p class="contact-card-label">Bookings &amp; Contato</p>
+              <h3>Vamos criar algo juntos</h3>
+            </div>
+          </div>
+          <div class="contact-info">
+            <p>Disponível para shows, festivais, produções e colaborações. Envie sua mensagem ou fale diretamente por e-mail.</p>
+            <a class="contact-email" href="mailto:stuartpsyl@gmail.com">stuartpsyl@gmail.com</a>
+          </div>
+          <form class="contact-form" id="contactForm">
+            <div class="form-row">
+              <label for="contactName">Nome</label>
+              <input type="text" id="contactName" name="name" required placeholder="Seu nome">
+            </div>
+            <div class="form-row">
+              <label for="contactEmail">E-mail</label>
+              <input type="email" id="contactEmail" name="email" required placeholder="seu@email.com">
+            </div>
+            <div class="form-row">
+              <label for="contactMessage">Mensagem</label>
+              <textarea id="contactMessage" name="message" rows="4" required placeholder="Conte sobre o evento ou proposta..."></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Enviar mensagem</button>
+            <p class="form-note" id="formNote" role="status"></p>
+          </form>
+        </article>
+        <article class="contact-card feedback-card">
+          <div class="contact-card-heading">
+            <span class="contact-card-number">02</span>
+            <div>
+              <p class="contact-card-label">Sua experiência</p>
+              <h3>Deixe seu feedback</h3>
+            </div>
+          </div>
+          <p class="feedback-intro">Conte como foi sua experiência com o show, set ou evento do Stuart.</p>
+          <form class="feedback-form">
+            <div class="form-row">
+              <label for="feedbackName">Nome</label>
+              <input type="text" id="feedbackName" name="feedbackName" placeholder="Seu nome">
+            </div>
+            <fieldset class="rating-field">
+              <legend>Sua avaliação</legend>
+              <div class="rating-stars" aria-label="Avaliação de 1 a 5 estrelas">
+                <input type="radio" id="star5" name="rating" value="5"><label for="star5" aria-label="5 estrelas">★</label>
+                <input type="radio" id="star4" name="rating" value="4"><label for="star4" aria-label="4 estrelas">★</label>
+                <input type="radio" id="star3" name="rating" value="3"><label for="star3" aria-label="3 estrelas">★</label>
+                <input type="radio" id="star2" name="rating" value="2"><label for="star2" aria-label="2 estrelas">★</label>
+                <input type="radio" id="star1" name="rating" value="1"><label for="star1" aria-label="1 estrela">★</label>
+              </div>
+            </fieldset>
+            <div class="form-row">
+              <label for="feedbackText">Feedback</label>
+              <textarea id="feedbackText" name="feedback" rows="6" placeholder="Escreva seu comentário..."></textarea>
+            </div>
+            <button type="button" class="btn feedback-button btn-block" aria-disabled="true">Enviar feedback</button>
+            <p class="feedback-note">Envio disponível em breve.</p>
+          </form>
+        </article>
+      </div>
     </div>
   </section>
 

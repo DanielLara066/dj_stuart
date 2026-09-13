@@ -108,7 +108,6 @@ if (bioTrack) {
   });
 }
 
-const supportsFineCursor = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
 
 document.querySelectorAll('.video-sound-toggle').forEach((button) => {
   button.addEventListener('click', (event) => {
@@ -133,54 +132,3 @@ document.querySelectorAll('.video-sound-toggle').forEach((button) => {
   });
 });
 
-if (supportsFineCursor) {
-  document.body.classList.add('custom-cursor');
-
-  const cursorDot = document.getElementById('cursorDot');
-  const cursorRing = document.getElementById('cursorRing');
-
-  let dotX = window.innerWidth / 2;
-  let dotY = window.innerHeight / 2;
-  let ringX = dotX;
-  let ringY = dotY;
-
-  window.addEventListener('mousemove', (e) => {
-    dotX = e.clientX;
-    dotY = e.clientY;
-    cursorDot.style.left = `${dotX}px`;
-    cursorDot.style.top = `${dotY}px`;
-  });
-
-  function animateRing() {
-    ringX += (dotX - ringX) * 0.18;
-    ringY += (dotY - ringY) * 0.18;
-    cursorRing.style.left = `${ringX}px`;
-    cursorRing.style.top = `${ringY}px`;
-    requestAnimationFrame(animateRing);
-  }
-  requestAnimationFrame(animateRing);
-
-  const hoverTargets = 'a, button, input, textarea, .btn, .social-pill, .track-card, .mix-card, .gallery-item, .bio-slide';
-
-  document.addEventListener('mouseover', (e) => {
-    if (e.target.closest(hoverTargets)) {
-      cursorRing.classList.add('is-hovering');
-      cursorDot.classList.add('is-hovering');
-    }
-  });
-  document.addEventListener('mouseout', (e) => {
-    if (e.target.closest(hoverTargets)) {
-      cursorRing.classList.remove('is-hovering');
-      cursorDot.classList.remove('is-hovering');
-    }
-  });
-
-  document.addEventListener('mouseleave', () => {
-    cursorDot.style.opacity = '0';
-    cursorRing.style.opacity = '0';
-  });
-  document.addEventListener('mouseenter', () => {
-    cursorDot.style.opacity = '';
-    cursorRing.style.opacity = '';
-  });
-}

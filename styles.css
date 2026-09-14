@@ -1595,3 +1595,33 @@ html, body { max-width: 100%; overflow-x: clip; }
 
 /* Troca de vídeo pelo toque nas laterais do carrossel */
 .bio-arrow { display: none; }
+
+
+/* Áreas clicáveis sobre os ícones já presentes no banner */
+.hero-social-links {
+  position: absolute;
+  z-index: 3;
+  left: 78%;
+  top: 72%;
+  display: flex;
+  gap: 10px;
+}
+.hero-social-links a {
+  display: block;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: transparent;
+}
+.hero-social-links a:focus-visible {
+  outline: 2px solid rgba(255,255,255,.8);
+  outline-offset: 3px;
+}
+@media (max-width: 720px) {
+  .hero-social-links {
+    left: 76%;
+    top: 70%;
+    gap: 6px;
+  }
+  .hero-social-links a { width: 28px; height: 28px; }
+}

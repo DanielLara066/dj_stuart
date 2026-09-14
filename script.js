@@ -18,6 +18,15 @@ if (backToTop) {
   });
 }
 
+const topLinks = document.querySelectorAll('.logo[href="#top"]');
+topLinks.forEach((link) => {
+  link.addEventListener('click', (event) => {
+    event.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    history.replaceState(null, '', '#top');
+  });
+});
+
 const navToggle = document.getElementById('navToggle');
 const navLinks = document.getElementById('navLinks');
 

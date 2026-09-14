@@ -1591,3 +1591,7 @@ html, body { max-width: 100%; overflow-x: clip; }
   border-color: transparent;
   transform: none;
 }
+
+
+/* Troca de vídeo pelo toque nas laterais do carrossel */
+.bio-arrow { display: none; }

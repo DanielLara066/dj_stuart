@@ -136,10 +136,18 @@ function showBioSlide(index) {
   const nextIndex = (activeBioSlide + 1) % bioSlides.length;
 
   bioSlides.forEach((slide, slideIndex) => {
-    slide.classList.toggle('active', slideIndex === activeBioSlide);
+    const isActive = slideIndex === activeBioSlide;
+    const video = slide.querySelector('video');
+
+    slide.classList.toggle('active', isActive);
     slide.classList.toggle('is-previous', slideIndex === previousIndex);
     slide.classList.toggle('is-next', slideIndex === nextIndex);
-    slide.setAttribute('aria-hidden', String(slideIndex !== activeBioSlide));
+    slide.setAttribute('aria-hidden', String(!isActive));
+
+    if (video && !isActive) {
+      video.muted = true;
+      video.pause();
+    }
   });
 }
 

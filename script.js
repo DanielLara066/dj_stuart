@@ -9,6 +9,15 @@ if (!window.location.hash || window.location.hash === '#top') {
 
 document.getElementById('year').textContent = new Date().getFullYear();
 
+const backToTop = document.querySelector('.back-to-top');
+if (backToTop) {
+  backToTop.addEventListener('click', (event) => {
+    event.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    history.replaceState(null, '', '#top');
+  });
+}
+
 const navToggle = document.getElementById('navToggle');
 const navLinks = document.getElementById('navLinks');
 

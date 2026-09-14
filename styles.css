@@ -1576,3 +1576,18 @@ html, body { max-width: 100%; overflow-x: clip; }
   .bio-carousel { width: 100%; margin-left: 0; }
   .bio-track { width: 100%; overflow-x: hidden; }
 }
+
+
+/* Controles laterais discretos no carrossel */
+.bio-arrow {
+  color: transparent;
+  background: transparent;
+  border-color: transparent;
+  box-shadow: none;
+}
+.bio-arrow:hover {
+  color: transparent;
+  background: transparent;
+  border-color: transparent;
+  transform: none;
+}

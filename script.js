@@ -144,7 +144,10 @@ function showBioSlide(index) {
     slide.classList.toggle('is-next', slideIndex === nextIndex);
     slide.setAttribute('aria-hidden', String(!isActive));
 
-    if (video && !isActive) {
+    if (video && isActive) {
+      video.muted = true;
+      video.play().catch(() => {});
+    } else if (video) {
       video.muted = true;
       video.pause();
     }
